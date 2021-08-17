@@ -1,9 +1,8 @@
 <?php
     session_start();
     // redirectin
-    // header('Location: index.php');    
-    // exit();
-    
+    header('Location: index.php');    
+
     require dirname(__DIR__) . DIRECTORY_SEPARATOR . 'championnatFoot' . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . 'Equipe.php';
     require dirname(__DIR__) . DIRECTORY_SEPARATOR . 'championnatFoot' . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . 'Matchs.php';
 
@@ -22,10 +21,9 @@
     }
 
 
-
     // définir le classement
-    $classementGrpeA = array( $groupeA , $groupeB );
-    $temp=20;
+    // $classementGrpeA = array( $groupeA , $groupeB );
+
     
     
 ?>
@@ -42,10 +40,19 @@
 
     <?php
 
+        
         if ( isset( $_POST['numMatch'] ) ) {
             $numMatch = $_POST['numMatch'];
-
+            
             jouer_match();
+            // $neq1 = 'm' . $_POST['numMatch'].'eq1';
+            // $neq2 = 'm' . $_POST['numMatch'].'eq2';
+            
+            // echo 'numero match: '.$_POST['numMatch'] . '<br>';
+            // echo 'nom equipe: '.$_POST[$neq1] . '<br>';
+            // echo 'nom equipe: '.$_POST[$neq2] . '<br>';
+            // echo 'score 1: '.$_POST['score1'] . '<br>';
+            // echo 'score 2: '.$_POST['score2'] . '<br><br>';
 
         }
         
@@ -65,15 +72,17 @@
                 $score1 = $_POST['score1'];
                 $score2 = $_POST['score2'];
                 
+                //test
                 echo 'numero match: '.$numMatch . '<br>';
                 echo 'nom equipe: '.$nomEquipe1 . '<br>';
                 echo 'nom equipe: '.$nomEquipe2 . '<br>';
                 echo 'score 1: '.$score1 . '<br>';
                 echo 'score 2: '.$score2 . '<br><br>';
+                // fin test
                 
 
                 // version PhP 7 et +
-                // [$equipe1, $equipe2]= verifier_groupe_and_equipe($nomEquipe1,$nomEquipe2);
+                // [$equipe1, $equipe2, $nomGroupe]= find_groupe_and_his_name($nomEquipe1,$nomEquipe2);
                 $equipes= find_groupe_and_his_name($nomEquipe1,$nomEquipe2);
                 
                 if (isset($equipes)) {
@@ -81,9 +90,10 @@
                     echo '--------------------<br>';
                     echo 'Création match.............<br>';
                     echo '--------------------<br>';
+                    
                     // crée un match
                     $match = new Matchs($numMatch,$equipes['equipe1'],$equipes['equipe2'],$equipes['nomGroupe']);
-                    
+         
                     echo 'setScores<br>';
                     $match->setScores($score1,$score2);
                     
@@ -175,7 +185,7 @@
 
 
         // redirection
-        // exit();
+        exit();
 
     ?>
 

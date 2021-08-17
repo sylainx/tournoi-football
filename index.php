@@ -4,19 +4,13 @@
     //importation des classes        
     require dirname(__DIR__) . DIRECTORY_SEPARATOR . 'championnatFoot' . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . 'Equipe.php';
 
-    // définir les cookies
+    //variables pour définir les cookies
     $expiration = time() + 60 * 15;
     $path = '/';
     $tirageGroupeA = 'tirageGroupeA';
     $tirageGroupeB = 'tirageGroupeB';
 
-    // crée un new cookie s'il y en a pas 
-    if( isset($_COOKIE[$tirageGroupeA] ) != 1 AND isset($_COOKIE[$tirageGroupeB] ) != 1 ){
-        
-        setcookie($tirageGroupeA, null, $expiration, $path, false, true);
-        setcookie($tirageGroupeB, null, $expiration, $path, false, true);
-
-    }
+    
 ?>
 
 <!DOCTYPE html>
@@ -64,39 +58,48 @@
 
     </table>
 
-    <form action="index.php" method="post">
+    <form action="tirage/tirage.php" method="post">
         <button type="submit" name="lancer-tirage" value="tirage">Tirage</button>
     </form>
 
+    
         <!--------------- tirage equipe --------------->
-        
     <?php
+        
+        // VARIABLES POUR AFFICHER EQUIPE DE CHAQUE GROUPE
+        if (isset( $_COOKIE['tirageGroupeA'] ) ) {
+            $groupeA = unserialize($_COOKIE['tirageGroupeA']);
+        }
+
+        if (isset( $_COOKIE['tirageGroupeB'] ) ) {
+            $groupeB = unserialize($_COOKIE['tirageGroupeB']);
+        }
+
 
         // require dirname(__DIR__) . DIRECTORY_SEPARATOR . 'championnatFoot' . DIRECTORY_SEPARATOR . 'functions' . DIRECTORY_SEPARATOR.'functions.php';
-        include 'functions/functions.php';
-        //destructuring
-        if (isset($_POST['lancer-tirage'])) {            
-            $groupes= Tirage();
-            $groupeA = $groupes[0];
-            $groupeB = $groupes[1];
-        }
-        
+        // include 'functions/functions.php';
+
+        // if (isset($_POST['lancer-tirage'])) {            
+        //     $groupes= Tirage();
+        //     $groupeA = $groupes[0];
+        //     $groupeB = $groupes[1];
+        // }
         
 
     ?>
 
 
-<?php    
-    function liste_option_but(){
-        for ($i=0; $i <= 10; $i++){
-        
-?>
-    <option value=<?php echo $i; ?> ><?php echo $i; ?> </option>
+    <?php    
+        function liste_option_but(){
+            for ($i=0; $i <= 10; $i++){
+            
+    ?>
+        <option value=<?php echo $i; ?> ><?php echo $i; ?> </option>
 
-<?php 
-        } // boucle for
-    }   //function
-?>
+    <?php 
+            } // boucle for
+        }   //function
+    ?>
 
     
 <!--------------- fin code PhP --------------->
@@ -137,8 +140,8 @@
                     }else{
             ?>
 
-                <td><?php /*echo ($i+1)*/ ?> </td>
-                <td><?php /*echo $i */ ?> </td>
+                <td><?= 'Equipe '. ($i+1); ?> </td>
+                <td><?= 'Equipe '. ($i+1); ?> </td>
             <?php
                 }
             }
@@ -328,11 +331,12 @@
         </thead>
 
         <tbody>
-            <!-- match 1 -->
+
+            <!-- match  -->
             
             <?php
                 
-                for ($i=7; $i < 13; $i++) { // ouvrir boucle   ATTENTION, boucle commence a 1
+                for($i = 7; $i < 13; $i++) { // ouvrir boucle   ATTENTION, boucle commence a 1
                     
             ?>
             
@@ -427,7 +431,7 @@
                 <td id="score"> 
 
                     <?php
-                        $nomSession = 'match-'.$i.'-Grpe-A'; //recuperer le nom session dynamiquement 
+                        $nomSession = 'match-'.$i.'-Grpe-B'; //recuperer le nom session dynamiquement 
 
                         if ( isset($_SESSION[$nomSession]['scores'][0]) && isset($_SESSION[$nomSession]['scores'][1])) {
                             
