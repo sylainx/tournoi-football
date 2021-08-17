@@ -1,0 +1,39 @@
+
+- Read Match est une classe pour mieux gérer les matchs
+Elle prend 4 arguments en parametres:
+
+    - numero Match (int)'
+    - equipe 1 (Equipe)
+    - equipe 2 (Equipe)
+    - nom du groupe ( A ou B)
+
+Des getters et setters sont définies pour mieux manipuler
+les variables
+
+- La methode getScores permet de retourner un tableau 
+contenant le score du matchs
+    * tableau score[0] => score equipe 1
+    * tableau score[1] => score equipe 2
+
+- La methode setScores permet de définir le score du match.
+    * score1 => score equipe 1
+    * score2 => score equipe 2
+
+Une fois appelée, elle instancie les données du match
+à une variable session sous la forme:
+    match-1-Grpe-A
+
+
+- Les méthodes gagnant et perdant permettent de connaitre
+respectivement le gagnant et le perdant du match.
+Lorsque l'une d'entre-elle est appelée, elle modifie
+la fonction setPoint des 2 equipes.
+    - 3 pts equipe gagne
+    - 1 pts match null
+    - 0 pts perdu
+
+PS: l'appel de la "methode gagnant" retourne un tableau associatif de 3 valeurs:
+    - les 2 clés : 'equipe1', 'equipe2' déterminent les equipes jouant
+    - la clé: 'gagnant' donne l'équipe gagnante,
+        en cas d'égalité, elle contient la valeur 'null'
+        
