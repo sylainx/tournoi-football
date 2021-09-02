@@ -1,6 +1,11 @@
 <?php
     session_start();
 
+    //DETRUIRE les session s'il n'y a plus de cookies
+    if ( ! isset( $_COOKIE['tirageGroupeA'], $_COOKIE['tirageGroupeB'] ) ) {
+        session_destroy();
+    }    
+
     //importation des classes        
     require dirname(__DIR__) . DIRECTORY_SEPARATOR . 'championnatFoot' . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . 'Equipe.php';
 
@@ -10,6 +15,13 @@
     $tirageGroupeA = 'tirageGroupeA';
     $tirageGroupeB = 'tirageGroupeB';
 
+    /* ============================================================*/
+    // ====================== Gérer classement ======================
+    /* ============================================================*/    
+    include('./functions/functions.php');    
+    gererClassement();
+
+    
     
 ?>
 
@@ -74,17 +86,6 @@
         if (isset( $_COOKIE['tirageGroupeB'] ) ) {
             $groupeB = unserialize($_COOKIE['tirageGroupeB']);
         }
-
-
-        // require dirname(__DIR__) . DIRECTORY_SEPARATOR . 'championnatFoot' . DIRECTORY_SEPARATOR . 'functions' . DIRECTORY_SEPARATOR.'functions.php';
-        // include 'functions/functions.php';
-
-        // if (isset($_POST['lancer-tirage'])) {            
-        //     $groupes= Tirage();
-        //     $groupeA = $groupes[0];
-        //     $groupeB = $groupes[1];
-        // }
-        
 
     ?>
 
@@ -178,7 +179,7 @@
             ?>
             
             <tr>
-                <form action='stats.php' method='post'> <!-- formulaire d'envoi donnees -->
+                <form action='functions/stats.php' method='post'> <!-- formulaire d'envoi donnees -->
             
                 <td>Match <?php echo $i; ?> </td> 
                 
@@ -341,7 +342,7 @@
             ?>
             
             <tr>
-                <form action='stats.php' method='post'> <!-- formulaire d'envoi donnees -->
+            <form action='functions/stats.php' method='post'> <!-- formulaire d'envoi donnees -->
             
                 <td>Match <?php echo $i; ?> </td> 
                 
@@ -429,6 +430,7 @@
                 </td>
 
                 <td id="score"> 
+                    
 
                     <?php
                         $nomSession = 'match-'.$i.'-Grpe-B'; //recuperer le nom session dynamiquement 
@@ -477,7 +479,6 @@
     </table>
 
 
-
     <!-------------------------------------------->
     <!-------------------------------------------->
     <!----------- CLASSEMENT GROUPE A ----------->
@@ -500,58 +501,46 @@
                 <th>+/-</th>
                 <th>Pt</th>
             </tr>
-
+            
         </thead>
-
+        
         <tbody>
-            <tr>
-                <td>1er Groupe</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <td>2e Groupe</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <td>3e Groupe</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <td>4e Groupe</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-            </tr>
 
+            <?php
+            
+                $ligneCase= array('nomEquipe', 'mj', 'mg', 'mn', 'mp', 'bp', 'bc', 'diff', 'point');
+
+                for ($i=0; $i < 4 ; $i++) {
+                    echo '<tr>';
+
+                        for ($j=0; $j < 9; $j++) {
+            ?>            
+                            <td> 
+                                <?php
+                                    if (isset($_SESSION['classement-Grpe-A'])) {
+                                        
+                                        echo $_SESSION['classement-Grpe-A'][$i][ $ligneCase[$j] ] ;
+                                    
+                                    } else if($ligneCase[$j] == 'nomEquipe') {
+
+                                        echo ($i+1) .'TDS';
+
+                                    }else {
+                                        echo 0;
+                                    }
+                                ?> 
+                            </td>
+                
+            <?php
+                        }
+                    echo '</tr>';
+                }
+            ?>
+            
         </tbody>
-
+        
     </table>
+
 
 
     <!-------------------------------------------->
@@ -559,7 +548,7 @@
     <!----------- CLASSEMENT GROUPE B ----------->
     <!-------------------------------------------->
     <!-------------------------------------------->
-    
+
     <h2 style="text-align: center">Classement Groupe B</h2>
     <table >
         
@@ -580,54 +569,44 @@
         </thead>
         
         <tbody>
-            <tr>
-                <td>1er Groupe</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <td>2e Groupe</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <td>3e Groupe</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <td>4e Groupe</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-            </tr>
+
+            <?php
+            
+                $ligneCase= array('nomEquipe', 'mj', 'mg', 'mn', 'mp', 'bp', 'bc', 'diff', 'point');
+
+                for ($i=0; $i < 4 ; $i++) {
+                    echo '<tr>';
+
+                        for ($j=0; $j < 9; $j++) {
+            ?>            
+                            <td> 
+                                <?php
+                                    if (isset($_SESSION['classement-Grpe-B'])) {
+                                        
+                                        echo $_SESSION['classement-Grpe-B'][$i][ $ligneCase[$j] ] ;
+                                    
+                                    } else if($ligneCase[$j] == 'nomEquipe') {
+
+                                        echo ($i+1) .'TDS';
+
+                                    }else {
+                                        echo 0;
+                                    }
+                                ?> 
+                            </td>
+                
+            <?php
+                        }
+                    echo '</tr>';
+                }
+            ?>
             
         </tbody>
         
     </table>
+
+
+
     
         <!-------------------------------------------->
         <!-------------------------------------------->
@@ -650,7 +629,8 @@
             <tr>
                 <td>Math 13</td>
                 <td>1eA VS 2eB</td> 
-                <td>0 - 0</td>               
+                <td>0- 0</td>               
+
             </tr>
             
             <tr>
@@ -723,8 +703,6 @@
    
 
     <!-- <script src="js/score.js"></script> -->
-
-
 
 
 </body>

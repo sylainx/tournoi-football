@@ -1,5 +1,5 @@
 <?php
-    
+    session_start();
     // redirectin
     header('Location: ../index.php');
 
@@ -15,22 +15,21 @@
     
     // <!--------------- tirage equipe --------------->
     if (isset($_POST['lancer-tirage'])) {            
-        $groupes= Tirage();    
+        Tirage();    //appel de la fonction
     }
         
 
     function Tirage()
     {
-
                 // chaque equipe                    
-        $eqBRA = new Equipe('Bresil','images/BRA.png');
-        $eqARG = new Equipe('Argentine','images/ARG.png');
-        $eqFRA = new Equipe('France','images/FRA.png');
-        $eqITA = new Equipe('Italie','images/ITA.png');
-        $eqESP = new Equipe('Espagne','images/ESP.png');
-        $eqGER = new Equipe('Allemagne','images/GER.png');
-        $eqPOR = new Equipe('Portugal','images/POR.png');
-        $eqHTI = new Equipe('Haiti','images/HTI.png');
+        $eqBRA = new Equipe('Bresil','images/bra.png');
+        $eqARG = new Equipe('Argentine','images/arg.png');
+        $eqFRA = new Equipe('France','images/fra.png');
+        $eqITA = new Equipe('Italie','images/ita.png');
+        $eqESP = new Equipe('Espagne','images/esp.png');
+        $eqGER = new Equipe('Allemagne','images/ger.png');
+        $eqPOR = new Equipe('Portugal','images/por.png');
+        $eqHTI = new Equipe('Haiti','images/hti.png');
 
         // tableau contenant l'ensemble des équipes du championnat
         $equipes = array(
@@ -44,25 +43,27 @@
             $eqHTI
         );
 
-
         $groupeA = [];
         $groupeB = [];
 
         $valeurRandom=null; #variable contenant le tirage aléatoire
 
-        #   bloucle pour faire le tirage
+        
+        //bloucle pour faire le tirage
         for ($i=0; $i < 8; $i+=2) { 
 
             $valeurRandom = rand($i,$i+1); # cacluler une valeur aléatoirement pour chaque tete de série
             
-            //si on ne précise pas de valeur in [] php les remplacent
             $groupeA[]=$equipes[$valeurRandom];
-
+            
             if($i == $valeurRandom){
+
                 $groupeB[]=$equipes[$valeurRandom+1];
+
             }
             else{
                 $groupeB[]=$equipes[$valeurRandom-1];
+               
             }
             
         }
@@ -71,13 +72,92 @@
         setcookie($GLOBALS['tirageGroupeA'], serialize($groupeA), $GLOBALS['expiration'], $GLOBALS['path'], false, true);
         setcookie($GLOBALS['tirageGroupeB'], serialize($groupeB), $GLOBALS['expiration'], $GLOBALS['path'], false, true);
         
-        
-        // echo '<pre>';
-        // var_dump($groupeA);
-        // var_dump($groupeB);
-        // echo '</pre>';
 
-        return array($groupeA, $groupeB);
+        // =================== ACCES A LA BASE DE DONNÉES =============================
+        
+        require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'ConnexionBD' . DIRECTORY_SEPARATOR . 'base.php';
+  
+        
+        // ------------ effacer toutes les données liste des matchs ------------
+        $codeSql = "DELETE FROM listematchs";
+        $requete = $bdd->prepare($codeSql);
+        $requete->execute();
+        $requete->closeCursor();
+       
+        // ------------ effacer toutes les données classement Groupe A ------------
+        $codeSql = "DELETE FROM classementgroupea";
+        $requete = $bdd->prepare($codeSql);
+        $requete->execute();
+        $requete->closeCursor();
+        
+        // ------------ effacer toutes les données classement Groupe B ------------
+        $codeSql = "DELETE FROM classementgroupeb";
+        $stmt1 = $bdd->prepare($codeSql);
+        $stmt1->execute();
+        $stmt1->closeCursor();
+
+
+        // ------------ inserer données dans les tables classements
+        
+        foreach ($groupeA as $oneTeam) {
+
+            $codeSql = "INSERT INTO classementgroupea(nomEquipe,groupe,logo,mj,mg,mn,mp,bp,bc,point,diff)
+                VALUES( :nomEquipe, :groupe, :logo, :mj, :mg, :mn, :mp, :bp, :bc, :point, :diff)";
+
+            $grpe = 'A';
+            
+            $requete = $bdd->prepare($codeSql);
+        
+            $requete->execute(array(
+                ':nomEquipe' => $oneTeam->getNom(),
+                ':groupe'=> $grpe,
+                ':logo' => $oneTeam->getLogo(),
+                ':mj'=> $oneTeam->getMj(),
+                ':mg'=> $oneTeam->getMg(),
+                ':mn'=> $oneTeam->getMn(),
+                ':mp'=> $oneTeam->getMp(),
+                ':bp'=> $oneTeam->getBut(),
+                ':bc'=> $oneTeam->getBc(),
+                ':point'=> $oneTeam->getPoint(),
+                ':diff'=> $oneTeam->getDiff()
+            ));
+        }
+        $requete->closeCursor(); 
+        
+
+        foreach ($groupeB as $oneTeam) {
+
+            $codeSql = "INSERT INTO classementgroupeb(nomEquipe,groupe,logo,mj,mg,mn,mp,bp,bc,point,diff)
+                VALUES( :nomEquipe, :groupe, :logo, :mj, :mg, :mn, :mp, :bp, :bc, :point, :diff)";
+
+            $grpe = 'B';
+            
+            $requete = $bdd->prepare($codeSql);
+        
+            $requete->execute(array(
+                ':nomEquipe' => $oneTeam->getNom(),
+                ':groupe'=> $grpe,
+                ':logo' => $oneTeam->getLogo(),
+                ':mj'=> $oneTeam->getMj(),
+                ':mg'=> $oneTeam->getMg(),
+                ':mn'=> $oneTeam->getMn(),
+                ':mp'=> $oneTeam->getMp(),
+                ':bp'=> $oneTeam->getBut(),
+                ':bc'=> $oneTeam->getBc(),
+                ':point'=> $oneTeam->getPoint(),
+                ':diff'=> $oneTeam->getDiff()
+            ));
+        }
+        $requete->closeCursor(); 
+
+        // =================== FIN =============================
+        
+        //détruire la session courante s'il y en a
+        if (isset($_SESSION) ) {
+            session_destroy();
+            
+        }
+        
     } 
 
     exit();

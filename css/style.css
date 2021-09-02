@@ -20,16 +20,15 @@ li{
 
 /* ------------- tableau ---------- */
 table{
-    border: 1px solid;
-    max-width: 700px;
+    border-collapse: collapse;
+    max-width: 800px;
     width: 80%;
-    margin: 2rem auto;    
+    margin: 1.5rem auto;    
 }
 
 th,td{
+    font-size: 20px;
     border: 1px solid;
     padding: 10px;
 }
 
-
-/*  */

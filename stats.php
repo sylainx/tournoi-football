@@ -45,15 +45,7 @@
             $numMatch = $_POST['numMatch'];
             
             jouer_match();
-            // $neq1 = 'm' . $_POST['numMatch'].'eq1';
-            // $neq2 = 'm' . $_POST['numMatch'].'eq2';
             
-            // echo 'numero match: '.$_POST['numMatch'] . '<br>';
-            // echo 'nom equipe: '.$_POST[$neq1] . '<br>';
-            // echo 'nom equipe: '.$_POST[$neq2] . '<br>';
-            // echo 'score 1: '.$_POST['score1'] . '<br>';
-            // echo 'score 2: '.$_POST['score2'] . '<br><br>';
-
         }
         
 
@@ -71,43 +63,30 @@
                 $nomEquipe2 = $_POST[$codeNomEq2];
                 $score1 = $_POST['score1'];
                 $score2 = $_POST['score2'];
-                
-                //test
-                echo 'numero match: '.$numMatch . '<br>';
-                echo 'nom equipe: '.$nomEquipe1 . '<br>';
-                echo 'nom equipe: '.$nomEquipe2 . '<br>';
-                echo 'score 1: '.$score1 . '<br>';
-                echo 'score 2: '.$score2 . '<br><br>';
-                // fin test
-                
-
+               
                 // version PhP 7 et +
                 // [$equipe1, $equipe2, $nomGroupe]= find_groupe_and_his_name($nomEquipe1,$nomEquipe2);
                 $equipes= find_groupe_and_his_name($nomEquipe1,$nomEquipe2);
                 
                 if (isset($equipes)) {
 
-                    echo '--------------------<br>';
-                    echo 'Création match.............<br>';
-                    echo '--------------------<br>';
-                    
                     // crée un match
                     $match = new Matchs($numMatch,$equipes['equipe1'],$equipes['equipe2'],$equipes['nomGroupe']);
          
-                    echo 'setScores<br>';
+                    //echo 'setScores<br>';
                     $match->setScores($score1,$score2);
                     
                     $gagnant = $match->gagnant();
 
                     if ( isset( $gagnant['gagnant'] ) ) {
 
-                        echo '<br>Le gagnant est: '. $gagnant['gagnant']->getNom() ;
-                        // echo '<br>Nombre total de point: '. $match->getScores()[0] . '-'. $match->getScores()[0];
-                        echo '<br>Nombre total de but : '. $match->getScores()[0] . '-'. $match->getScores()[1];
+                        //echo '<br>Le gagnant est: '. $gagnant['gagnant']->getNom() ;
+                        // //echo '<br>Nombre total de point: '. $match->getScores()[0] . '-'. $match->getScores()[0];
+                        //echo '<br>Nombre total de but : '. $match->getScores()[0] . '-'. $match->getScores()[1];
                     }
                     else{
-                        echo '<br>Match null: ' ;
-                        echo '<br>Nombre total de but : '. $match->getScores()[0] . '-'. $match->getScores()[0];
+                        //echo '<br>Match null: ' ;
+                        //echo '<br>Nombre total de but : '. $match->getScores()[0] . '-'. $match->getScores()[0];
                     }
                 }
             }
@@ -122,7 +101,7 @@
             $stockerTemporEq2 = null;
             $nomGroupe = null;
             
-            echo 'intérieur func find_groupe <br>';
+            //echo 'intérieur func find_groupe <br>';
             
             //rechercher dans groupe A
             foreach ($GLOBALS['groupeA'] as $eq) {
@@ -130,13 +109,13 @@
                 //verifier equipe 1
                 if ( strcasecmp($equipe1, $eq->getNom() ) == 0 ) {
                     $trouveEq1=true;
-                    echo '<br>trouve equipe 1';
+                    //echo '<br>trouve equipe 1';
                     $stockerTemporEq1 = $eq;
                 }
                 //verifier equipe 2
                 if ( strcasecmp($equipe2, $eq->getNom() ) == 0 ) {
                     $trouveEq2 =true;
-                    echo '<br>trouve equipe 2';
+                    //echo '<br>trouve equipe 2';
                     $stockerTemporEq2 = $eq;
                 }
 
@@ -145,7 +124,7 @@
 
             //condition validant que les 2 sont ds le meme groupe
             if ($trouveEq1 &&  $trouveEq2) {
-                echo '<br><br> meme groupe[A]<br>';
+                //echo '<br><br> meme groupe[A]<br>';
                 $nomGroupe='A';
                 return array(
                     'equipe1' => $stockerTemporEq1 ,
@@ -158,13 +137,13 @@
                 //verifier equipe 1
                 if ( strcasecmp($equipe1, $eq->getNom() ) == 0 ) {
                     $trouveEq1=true;
-                    echo '<br>trouve equipe 1';
+                    //echo '<br>trouve equipe 1';
                     $stockerTemporEq1 = $eq;
                 }
                 //verifier equipe 2
                 if ( strcasecmp($equipe2, $eq->getNom() ) == 0 ) {
                     $trouveEq2 =true;
-                    echo '<br>trouve equipe 2';
+                    //echo '<br>trouve equipe 2';
                     $stockerTemporEq2 = $eq;
                 }
 
@@ -173,7 +152,7 @@
             //condition validant que les 2 sont ds le meme groupe
             if ( $trouveEq1 &&  $trouveEq2) {
                 $nomGroupe='B';
-                echo '<br><br> meme groupe'.$nomGroupe.'<br>';
+                //echo '<br><br> meme groupe'.$nomGroupe.'<br>';
                 return array(
                     'equipe1' => $stockerTemporEq1 ,
                     'equipe2' => $stockerTemporEq2,
