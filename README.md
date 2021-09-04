@@ -1,0 +1,2 @@
+# tournoi-football
+Simulation d'un tournoi international de football intitulé «Coupe 3e infos » organisé par les étudiants de la 3e année sciences informatiques de l’INUKA. Vous êtes invités à développer un site web en PHP (application web) pouvant faire la gestion du tirage au sort, la gestion des classements et la gestion des confrontations (premier et deuxième tour). Le tournoi comprend huit (8) équipes, deux (2) groupes, quatre (4) équipes par groupe.
