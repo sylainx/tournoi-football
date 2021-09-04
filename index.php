@@ -16,9 +16,9 @@
     $tirageGroupeB = 'tirageGroupeB';
 
     /* ============================================================*/
-    // ====================== Gérer classement ======================
+    // ====================== INCLURE ET APPEL FONCTION GESTION ClASSEMENT ======================
     /* ============================================================*/    
-    include('./functions/functions.php');    
+    include('functions/appelerBD.php');    
     gererClassement();
 
     

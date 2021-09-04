@@ -1,12 +1,13 @@
 <?php
     session_start();
-    // redirectin
+    // redirectin vers la page d un dossier plus haut
     header('Location: ../index.php');    
 
     require dirname(__DIR__) . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . 'Equipe.php';
     require dirname(__DIR__) . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . 'Matchs.php';
     
     require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'ConnexionBD' . DIRECTORY_SEPARATOR . 'base.php';
+
 
     
     // VARIABLES POUR CONSERVER GROUPE
