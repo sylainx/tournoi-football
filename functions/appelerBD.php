@@ -279,29 +279,31 @@
         
     // -------------- SCORE DU MATCH EN PetiteFINAL --------------        
     function setScorePetiteFinalBD($id , $nomEquipe1, $nomEquipe2, $score1, $score2 ){
-        
+
         global $bdd;
         
-        $codeSql = "UPDATE petitefinal SET score = :score1 WHERE nomEquipe= :nomEquipe1 AND id= :id";
-    
+        $codeSql = "UPDATE petitefinal SET score = :score1 WHERE nomEquipe = :nomEquipe1";
+        
         $stmtListeMatch = $bdd->prepare($codeSql);
 
         $stmtListeMatch->execute(array(
+            
             ':score1' => $score1,
-            ':id' => $id,
             ':nomEquipe1'=> $nomEquipe1
+
         ));
 
         $stmtListeMatch->closeCursor();             
 
-        $codeSql = "UPDATE petitefinal SET score = :score2 WHERE nomEquipe= :nomEquipe2 AND id= :id";
+        $codeSql = "UPDATE petitefinal SET score = :score2 WHERE nomEquipe= :nomEquipe2";
     
         $stmtListeMatch = $bdd->prepare($codeSql);
 
         $stmtListeMatch->execute(array(
+            
             ':score2' => $score2,
-            ':id' => $id,
             ':nomEquipe2'=> $nomEquipe2
+
         ));
 
         $stmtListeMatch->closeCursor();             

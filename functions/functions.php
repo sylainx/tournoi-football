@@ -231,10 +231,11 @@
 
         echo '<br>------------------------------------';
         echo '<br>Jouer Petite';
+        
         $codeNomEq1 = 'm'.$numMatch.'eq1'; //code match sous forme : m1eq1, m2eq1,m3eq1,...
         $codeNomEq2 = 'm'.$numMatch.'eq2'; //code match sous forme : m1eq2, m2eq2,m3eq2,...
 
-        if ( isset($_POST[$codeNomEq1]) && isset($_POST[$codeNomEq2]) 
+        if ( isset($_POST[$codeNomEq1] , $_POST[$codeNomEq2]) 
             && isset($_POST['score1']) && isset($_POST['score2']) ) {
                 echo '<br>condition verifier presence 2equipes';
             $nomEquipe1 = $_POST[$codeNomEq1];
