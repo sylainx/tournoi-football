@@ -1,4 +1,3 @@
-
 <?php
     session_start();
 
@@ -7,23 +6,26 @@
         session_destroy();
     }    
 
-    //importation des classes        
+    //importation des scirpts
     require dirname(__DIR__) . DIRECTORY_SEPARATOR . 'championnatFoot' . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . 'Equipe.php';
-
+    include('functions/appelerBD.php');    
+    include('functions/functions.php');    
+    
     //variables pour définir les cookies
     $expiration = time() + 60 * 15;
     $path = '/';
     $tirageGroupeA = 'tirageGroupeA';
     $tirageGroupeB = 'tirageGroupeB';
 
-    /* ============================================================*/
+    
+    /* ========================================================================================*/
     // ====================== INCLURE ET APPEL FONCTION GESTION ClASSEMENT ======================
-    /* ============================================================*/    
-    include('functions/appelerBD.php');    
+    /* ========================================================================================*/    
+    
     gererClassement();
 
     
-    
+     
 ?>
 
 <!DOCTYPE html>
@@ -90,18 +92,6 @@
 
     ?>
 
-
-    <?php    
-        function liste_option_but(){
-            for ($i=0; $i <= 10; $i++){
-            
-    ?>
-        <option value=<?php echo $i; ?> ><?php echo $i; ?> </option>
-
-    <?php 
-            } // boucle for
-        }   //function
-    ?>
 
     
 <!--------------- fin code PhP --------------->
@@ -607,14 +597,12 @@
     </table>
 
 
+    <!-------------------------------------------->
+    <!-------------------------------------------->
+    <!----------- demi final  ----------->
+    <!-------------------------------------------->
+    <!-------------------------------------------->
 
-    
-        <!-------------------------------------------->
-        <!-------------------------------------------->
-        <!----------- demi final  ----------->
-        <!-------------------------------------------->
-        <!-------------------------------------------->
-    
         <h2 style="text-align: center">Demi final</h2>
     <table >
         
@@ -627,17 +615,134 @@
         </thead>
 
         <tbody>
+                <!-- match demi final -->
+            
             <tr>
-                <td>Math 13</td>
-                <td>1eA VS 2eB</td> 
-                <td>0- 0</td>               
+                <form action='functions/stats.php' method='post'> <!-- formulaire d'envoi donnees -->
+            
+                <!-- colonne affiche EqX VS EqY -->
+                <td>Match 13</td>
+                <td id="match-13" >
+
+                    <?php
+                        $nomSession ='match-demiFinal-13';
+                        if (isset($_SESSION[$nomSession])) {
+                            echo '<span>'.$_SESSION[ $nomSession ]['equipe1']. '</span> VS <span>'. $_SESSION[ $nomSession ]['equipe2'] .'</span>' 
+                        ?>
+                            <input type="hidden" id='m13eq1' name='m13eq1' value=<?php echo $_SESSION[ $nomSession ]['equipe1'] ?>  >
+                            <input type="hidden" id='m13eq2' name='m13eq2' value=<?php echo $_SESSION[ $nomSession ]['equipe2'] ?>  >
+                        
+                    <?php
+                        }else {
+                            echo '1eA VS 2e B';
+                        }
+                        
+                    ?>
+
+                </td>
+
+                <td id="score"> 
+
+                    <?php
+                        $nomSession = 'score-demiFinal-13'; //recuperer le nom session dynamiquement 
+
+                        if ( isset($_SESSION[$nomSession]['score1'] ) && isset( $_SESSION[$nomSession]['score2'] )) {
+                            
+                    ?>
+                        <input type="number" disabled id='score1' name='score1' style="width: 2.425rem" value=<?php echo $_SESSION[$nomSession]['score1'] ?>  >
+                        -
+                        <input type="number" disabled id='score2' name='score2' style="width: 2.425rem" value=<?php echo $_SESSION[$nomSession]['score2'] ?>  >
+                            
+                    <?php
+                        }else{
+                    ?>
+                        <!-- CHANGER SCORE A CHAQUE REDIRECTION -->
+                        
+                        <select name='score1'>
+                            <?php liste_option_but(); ?>
+                        </select>                        
+                        - 
+                        <select name='score2'>
+                            <?php liste_option_but(); ?>
+                        </select>                        
+                    
+                        <?php
+                        }
+                    ?>
+
+                </td>
+
+                <td id="jouer">
+                    <input type="hidden" id='numMatch' name='numMatch' value="13" >
+                    <button >Jouer</button>
+                </td>
+
+                </form>
 
             </tr>
             
             <tr>
-                <td>Math 13</td>
-                <td>1eB VS 2eA</td>  
-                <td>0 - 0</td>              
+                <form action='functions/stats.php' method='post'> <!-- formulaire d'envoi donnees -->
+            
+                <!-- colonne affiche EqX VS EqY -->
+                <td>Match 14</td>
+                <td id="match-14" >
+
+                    <?php
+                        $nomSession ='match-demiFinal-14';
+                        if (isset($_SESSION[$nomSession])) {
+                            echo '<span>'.$_SESSION[ $nomSession ]['equipe1']. '</span> VS <span>'. $_SESSION[ $nomSession ]['equipe2'] .'</span>' 
+                        ?>
+                            <input type="hidden" id='m14eq1' name='m14eq1' value=<?php echo $_SESSION[ $nomSession ]['equipe1'] ?>  >
+                            <input type="hidden" id='m14eq2' name='m14eq2' value=<?php echo $_SESSION[ $nomSession ]['equipe2'] ?>  >
+                        
+                    <?php
+                        }else {
+                            echo '1eA VS 2e B';
+                        }
+                        
+                    ?>
+
+                </td>
+
+                <td id="score"> 
+
+                    <?php
+                        $nomSession = 'score-demiFinal-14'; //recuperer le nom session dynamiquement 
+
+                        if ( isset($_SESSION[$nomSession]['score1'] ) && isset( $_SESSION[$nomSession]['score2'] )) {
+                            
+                    ?>
+                        <input type="number" disabled id='score1' name='score1' style="width: 2.425rem" value=<?php echo $_SESSION[$nomSession]['score1'] ?>  >
+                        -
+                        <input type="number" disabled id='score2' name='score2' style="width: 2.425rem" value=<?php echo $_SESSION[$nomSession]['score2'] ?>  >
+                            
+                    <?php
+                        }else{
+                    ?>
+                        <!-- CHANGER SCORE A CHAQUE REDIRECTION -->
+                        
+                        <select name='score1'>
+                            <?php liste_option_but(); ?>
+                        </select>                        
+                        - 
+                        <select name='score2'>
+                            <?php liste_option_but(); ?>
+                        </select>                        
+                    
+                        <?php
+                        }
+                    ?>
+
+                </td>
+
+                <td id="jouer">
+                    <input type="hidden" id='numMatch' name='numMatch' value="14" >
+                    <button >Jouer</button>
+                </td>
+
+                </form>
+
             </tr>
             
         </tbody>
@@ -661,14 +766,72 @@
                 <th>Score</th>
             </tr>
         </thead>
-
         <tbody>
+                            
             <tr>
-                <td>Math 14</td>
-                <td>P13 VS P14</td>               
-                <td>0 - 0</td>
+                <form action='functions/stats.php' method='post'> <!-- formulaire d'envoi donnees -->
+                
+                    <!-- colonne affiche EqX VS EqY -->
+                    <td>Match 15</td>
+                    <td id="match-15" >
+                        <?php
+                            $nomSession1 = 'match-petiteFinal-13';
+                            $nomSession2 = 'match-petiteFinal-14';
+                            if (isset( $_SESSION[$nomSession1]['nomEquipe'], $_SESSION[$nomSession2]['nomEquipe'] )) {
+                                echo '<span>'.$_SESSION[$nomSession1]['nomEquipe']. '</span> VS <span>'. $_SESSION[$nomSession2]['nomEquipe'] .'</span>' 
+                        ?>
+                            <input type="hidden" id='m15eq1' name='m15eq1' value=<?php echo $_SESSION[$nomSession1]['nomEquipe'] ?>  >
+                            <input type="hidden" id='m15eq2' name='m15eq2' value=<?php echo $_SESSION[$nomSession2]['nomEquipe'] ?>  >
+                            
+                        <?php
+                            }else {
+                                echo 'P13 VS P14';
+                            }
+                            
+                        ?>
+
+                    </td>
+
+                    <td id="score"> 
+
+                        <?php
+                            $nomSession = 'score-petiteFinale-15'; //recuperer le nom session dynamiquement 
+
+                            if ( isset($_SESSION[$nomSession]['score1'] ) && isset($_SESSION[$nomSession]['score2'] )) {
+                                
+                        ?>
+                            <input type="number" disabled id='score1' name='score1' style="width: 2.425rem" value=<?php echo $_SESSION[$nomSession]['score1'] ?>  >
+                            -
+                            <input type="number" disabled id='score2' name='score2' style="width: 2.425rem" value=<?php echo $_SESSION[$nomSession]['score2'] ?>  >
+                                
+                        <?php
+                            }else{
+                        ?>
+                            <!-- CHANGER SCORE A CHAQUE REDIRECTION -->
+                            
+                            <select name='score1'>
+                                <?php liste_option_but(); ?>
+                            </select>                        
+                            - 
+                            <select name='score2'>
+                                <?php liste_option_but(); ?>
+                            </select>                        
+                        
+                            <?php
+                            }
+                        ?>
+
+                    </td>
+
+                    <td id="jouer">
+                        <input type="hidden" id='numMatch' name='numMatch' value="15" >
+                        <button >Jouer</button>
+                    </td>
+                    
+                </form>
+
             </tr>
-            
+
         </tbody>
 
     </table>
@@ -692,11 +855,69 @@
         </thead>
 
         <tbody>
-            <tr>
-                <td>Math 16</td>
-                <td>V13 VS V14</td>
-                <td>0 - 0</td>           
-            </tr>
+        <tr>
+            <form action='functions/stats.php' method='post'> <!-- formulaire d'envoi donnees -->
+            
+                <!-- colonne affiche EqX VS EqY -->
+                <td>Match 16</td>
+
+                <td id="match-16" >
+                    <?php
+                        $nomSession1 = 'match-grandeFinal-13';
+                        $nomSession2 = 'match-grandeFinal-14';
+                        if (isset( $_SESSION[$nomSession1]['nomEquipe'], $_SESSION[$nomSession2]['nomEquipe'] )) {
+                            echo '<span>'.$_SESSION[$nomSession1]['nomEquipe']. '</span> VS <span>'. $_SESSION[$nomSession2]['nomEquipe'] .'</span>' 
+                    ?>
+                        <input type="hidden" id='m16eq1' name='m16eq1' value=<?php echo $_SESSION[$nomSession1]['nomEquipe'] ?>  >
+                        <input type="hidden" id='m16eq2' name='m16eq2' value=<?php echo $_SESSION[$nomSession2]['nomEquipe'] ?>  >
+                        
+                    <?php
+                        }else {
+                            echo 'V13 VS V14';
+                        }
+                        
+                    ?>
+
+                </td>
+
+                <td id="score"> 
+
+                    <?php
+                        $nomSession = 'score-grandeFinale-16'; //recuperer le nom session dynamiquement 
+
+                        if ( isset($_SESSION[$nomSession]['score1'] ) && isset($_SESSION[$nomSession]['score2'] )) {
+                            
+                    ?>
+                        <input type="number" disabled id='score1' name='score1' style="width: 2.425rem" value=<?php echo $_SESSION[$nomSession]['score1'] ?>  >
+                        -
+                        <input type="number" disabled id='score2' name='score2' style="width: 2.425rem" value=<?php echo $_SESSION[$nomSession]['score2'] ?>  >
+                            
+                    <?php
+                        }else{
+                    ?>
+                        <!-- CHANGER SCORE A CHAQUE REDIRECTION -->
+                        
+                        <select name='score1'>
+                            <?php liste_option_but(); ?>
+                        </select>                        
+                        - 
+                        <select name='score2'>
+                            <?php liste_option_but(); ?>
+                        </select>                        
+                    
+                        <?php
+                        }
+                    ?>
+
+                </td>
+
+                <td id="jouer">
+                    <input type="hidden" id='numMatch' name='numMatch' value="16" >
+                    <button >Jouer</button>
+                </td>
+                
+            </form>
+        </tr>
             
         </tbody>
 

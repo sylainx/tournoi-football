@@ -1,10 +1,14 @@
 <?php
     session_start();
+   
     // redirectin
     header('Location: ../index.php');
 
    //importation des classes        
-   require dirname(__DIR__) . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . 'Equipe.php';
+   require dirname(__DIR__) . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . 'Equipe.php';    
+   require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'ConnexionBD' . DIRECTORY_SEPARATOR . 'base.php';
+   require_once('../functions/appelerBD.php');
+   
 
     //variables pour définir les cookies
     $expiration = time() + 60 * 15;
@@ -21,6 +25,8 @@
 
     function Tirage()
     {
+        global $bdd;
+        
                 // chaque equipe                    
         $eqBRA = new Equipe('Bresil','images/bra.png');
         $eqARG = new Equipe('Argentine','images/arg.png');
@@ -32,22 +38,12 @@
         $eqHTI = new Equipe('Haiti','images/hti.png');
 
         // tableau contenant l'ensemble des équipes du championnat
-        $equipes = array(
-            $eqBRA,
-            $eqARG,
-            $eqFRA,
-            $eqITA,
-            $eqESP,
-            $eqGER,
-            $eqPOR,
-            $eqHTI
-        );
+        $equipes = array( $eqBRA, $eqARG, $eqFRA, $eqITA, $eqESP, $eqGER, $eqPOR, $eqHTI );
 
         $groupeA = [];
         $groupeB = [];
 
         $valeurRandom=null; #variable contenant le tirage aléatoire
-
         
         //bloucle pour faire le tirage
         for ($i=0; $i < 8; $i+=2) { 
@@ -71,32 +67,19 @@
         // ------------- STCOKER LES INFORMATIONS EN SESSION            
         setcookie($GLOBALS['tirageGroupeA'], serialize($groupeA), $GLOBALS['expiration'], $GLOBALS['path'], false, true);
         setcookie($GLOBALS['tirageGroupeB'], serialize($groupeB), $GLOBALS['expiration'], $GLOBALS['path'], false, true);
+
+        
+        
+        // ==================================================================================================
+        // ============================== ACCES A LA BASE DE DONNÉES ========================================
+        // ==================================================================================================
         
 
-        // =================== ACCES A LA BASE DE DONNÉES =============================
-        
-        require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'ConnexionBD' . DIRECTORY_SEPARATOR . 'base.php';
-  
-        
-        // ------------ effacer toutes les données liste des matchs ------------
-        $codeSql = "DELETE FROM listematchs";
-        $requete = $bdd->prepare($codeSql);
-        $requete->execute();
-        $requete->closeCursor();
-       
-        // ------------ effacer toutes les données classement Groupe A ------------
-        $codeSql = "DELETE FROM classementgroupea";
-        $requete = $bdd->prepare($codeSql);
-        $requete->execute();
-        $requete->closeCursor();
-        
-        // ------------ effacer toutes les données classement Groupe B ------------
-        $codeSql = "DELETE FROM classementgroupeb";
-        $stmt1 = $bdd->prepare($codeSql);
-        $stmt1->execute();
-        $stmt1->closeCursor();
+        /*---------------------- RÉINITIOALISER LES TABLES DANS LA BD ----------------------*/ 
+        delete_all_tables();
+        /*---------------------- ----------------------*/ 
 
-
+        
         // ------------ inserer données dans les tables classements
         
         foreach ($groupeA as $oneTeam) {

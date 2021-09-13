@@ -74,13 +74,6 @@
 
         }
 
-        public function setBdd($bdd)
-        {
-            echo 'I am in setBDD';
-            $this->bdd= $bdd;
-        }
-
-
 
         // ------------------------- METHODES CLASSES ------------------------------
 
