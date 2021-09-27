@@ -42,3 +42,41 @@
 
 
 // })
+
+// function myFunctionScore() {
+//     let x = document.getElementById("score");
+//     if (x.style.display === "none") {
+//       x.style.display = "block";
+//     } else {
+//       x.style.display = "none";
+//     }
+//   }
+ function test(){
+   document.getElementById("demo").innerHTML="hello world";
+   event.preventDefault();
+//    event.stopPropagation();
+ }
+
+//  var divs=[];
+//  var visibleDivId = null;
+//  function divVisibility('divId'){
+//    if(visibleDivId === divId){
+//      visibleDivId = null;
+//    }else{
+//      visibleDivId = divId;
+//    }
+//    hideNonVisibleDivs();
+//  }
+//   function hideNonVisibleDivs(){
+//     var i, divId, div;
+//     for (let i = 0; i < divs.length; i++) {
+//       divId = divs[i];
+//       div = document.getElementById(divId);
+//       if(visibleDivId === divId){
+//         div.style.display = "block";
+//       }else {
+//         div.style.display =" none";
+//       }
+      
+//     }
+//   } 

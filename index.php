@@ -7,7 +7,7 @@
     }    
 
     //importation des scirpts
-    require dirname(__DIR__) . DIRECTORY_SEPARATOR . 'championnatFoot' . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . 'Equipe.php';
+    require ('classes/Equipe.php');
     include('functions/appelerBD.php');    
     include('functions/functions.php');    
     
@@ -43,114 +43,130 @@
      
   <?php require 'header.php';?> 
   
-  <!-- Cart overlay-->
-    <div class="cart-overlay" id="tt">
-        <div class="cart">
-            <span class="close-cart">
-                <i class="fas fa-window-close"></i>
-            </span>
-            <div class="cart-content">
-                <!--score cart item--> 
-                
-                <!-- <div class="container-faceToFace">-->
-                    <div class="title">
-                        <h2>LATEST VERSUS</h2>
-                    </div>
-                    <div class="sub-title">
-                        <h4>TOURNOI SOCCER</h4>
-                    </div>
-                    <div class="container-matchInfo row">
-                        <!--icon first team-->
-                        <div class="icon-team1">
-                            <img src="Icons/brazil.png" style="width: 100px;" alt="">
+    <!-- Cart overlay-->
+        <div class="cart-overlay" id="tt">
+            <div class="cart">
+                <span class="close-cart">
+                    <i class="fas fa-window-close"></i>
+                </span>
+                <div class="cart-content">
+                    <!--score cart item--> 
+                    
+                    <!-- <div class="container-faceToFace">-->
+                        <div class="title">
+                            <h2>LATEST VERSUS</h2>
                         </div>
-                        <!--Match versus infos(score,etc...)-->
-                        <div class="info-versus">
-                            <div class="score-info row">
-                                <span class="team-name1">TEST</span>
-                                    <span class="score-content row">
-                                        <div class="score1"><input type="number"></div>
-                                        <div class="score2"><input type="number"></div>
-                                    </span>
-                                <span class="team-name2">TEST</span>
+                        <div class="sub-title">
+                            <h4>TOURNOI SOCCER</h4>
+                        </div>
+                        <form action="index.php" method="post">
+                            <div class="container-matchInfo row">
+                                <!--icon first team-->
+                                <div class="icon-team1">
+                                    <img src="Icons/brazil.png" style="width: 100px;" alt="">
+                                </div>
+                                <!--Match versus infos(score,etc...)-->
+                                <div class="info-versus">
+                                    <div class="score-info row">
+                                        <span class="team-name1">TEST</span>
+                                            <span class="score-content row">
+                                                <div class="score1"><input type="number"></div>
+                                                <div class="score2"><input type="number"></div>
+                                            </span>
+                                        <span class="team-name2">TEST</span>
+                                    </div>
+
+                                    <div class="meta-info row">
+                                    <div> 
+                                        <h5>Top Passer</h5>
+                                        <p id="passer">CA: Mario Gauthier</p>
+                                        </div>
+                                    <div> 
+                                        <h5>Submit score</h5>
+                                        <label for="click">
+                                            <button type="submit" class="btn-score" onclick="" >SUBMIT</button>
+                                        </label>
+                                        
+                                        </div>
+                                    
+                                    <div> 
+                                        <h5>Top Scorer</h5>
+                                        <p id="scorer">CA: Mario Gauthier</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!--icon second team-->
+                                <div class="icon-team2">
+                                    <img src="Icons/brazil.png" style="width: 100px;" alt="">
+                                </div>
                             </div>
+                        </form>
+                    <!--</div>-->
 
-                            <div class="meta-info row">
-                            <div> 
-                                <h5>Top Passer</h5>
-                                <p id="passer">CA:mario Gauthier</p>
-                                </div>
-                            <div> 
-                                <h5>Submit score</h5>
-                                <button class="btn-score">SUBMIT</button>
-                                </div>
-                            
-                            <div> 
-                                <h5>Top Scorer</h5>
-                                <p id="scorer">CA:mario Gauthier</p>
-                                </div>
-                            </div>
-
-                        </div>
-                        <!--icon second team-->
-                        <div class="icon-team2">
-                            <img src="Icons/brazil.png" style="width: 100px;" alt="">
-                        </div>
-                    </div>
-                <!--</div>-->
-
-                <!-- end score cart item--> 
+                    <!-- end score cart item--> 
+                </div>
             </div>
         </div>
-    </div>
-         <!--end of cart overlay-->
+    <!--end of cart overlay-->
     
          <!---->
     <div class="container-calendar">   
        <!---->
-        <div class="container-about">
-            <div class="about-title">
-                    <div class="section-title">
-                        <h2 data-title="Calendar of team">Liste d'equipe</h2>
-                        
-                    </div>
-            </div>
-        </div>
-    
-
-        <!----------- LISTE DES GROUPES ----------->
         
-        <table class="styled-table" >
+            <div class="container-about" style='margin:35px;'>
+                <div class="about-title">
+                        <div class="section-title">
+                            <h2 data-title="Calendar of team">Liste d'equipe</h2>
+                            
+                        </div>
+                </div>
+            </div>
+        
+        <section class="team-list">
+            <!----------- LISTE DES GROUPES ----------->
             
-            <thead>
-                <tr>
-                    <th>Lot #1 (e tete de série)</th>
-                    <th>Lot #2 (e tete de série)</th>
-                    <th>Lot #3 (e tete de série)</th>
-                    <th>Lot #3 (e tete de série)</th>
-                </tr>
-            </thead>
+            <table class="styled-table" >
+                
+                <thead>
+                    <tr>
+                        <th>Lot #1 (e tete de série)</th>
+                        <th>Lot #2 (e tete de série)</th>
+                        <th>Lot #3 (e tete de série)</th>
+                        <th>Lot #3 (e tete de série)</th>
+                    </tr>
+                </thead>
 
-            <tbody>
-                <tr>
-                    <td><img src="Icons/brazil.png" alt="team 1" style="width: 55px;"></td>
-                    <td><img src="Icons/France.png" alt="team 3" style="width: 40px;"></td>
-                    <td><img src="Icons/spain.svg" alt="team 5" style="width: 35px;" ></td>
-                    <td><img src="Icons/portugal.svg" alt="team 7" style="width: 35px;"></td>
-                </tr>
-                <tr>
-                    <td><img src="Icons/argentina.svg" alt="team 2" style="width: 45px;"></td>
-                    <td><img src="Icons/italia.png" alt="team 4" style="width: 35px;"></td>
-                    <td><img src="Icons/germany.png" alt="team 6" style="width: 45px;" ></td>
-                    <td><img src="Icons/haiti.png" alt="team 8" style="width: 40px;" ></td>
-                </tr>
-            </tbody>
+                <tbody>
+                    <tr>
+                        <td><img src="Icons/brazil.png" alt="team 1" style="width: 45px;"></td>
+                        <td><img src="Icons/France.png" alt="team 3" style="width: 40px;"></td>
+                        <td><img src="Icons/spain.svg" alt="team 5" style="width: 35px;" ></td>
+                        <td><img src="Icons/portugal.svg" alt="team 7" style="width: 35px;"></td>
+                    </tr>
+                    <tr>
+                        <td><img src="Icons/argentina.svg" alt="team 2" style="width: 45px;"></td>
+                        <td><img src="Icons/italia.png" alt="team 4" style="width: 35px;"></td>
+                        <td><img src="Icons/germany.png" alt="team 6" style="width: 45px;" ></td>
+                        <td><img src="Icons/haiti.png" alt="team 8" style="width: 40px;" ></td>
+                    </tr>
+                </tbody>
 
-        </table>
+            </table>
+            <!-- TIRAGE BUTTON -->
+            <div class="btn-tirage">
+                <form action="tirage/tirage.php" method="post">
+                    <button type="submit"  class="cart-btn banner-btn" name="lancer-tirage" value="tirage">Tirage</button>
+                    
+                </form>
+            </div>
+            <div class="wave wave1"></div>
+            <div class="wave wave2"></div>
+            <div class="wave wave3"></div>
+            <div class="wave wave4"></div>
+        </section>
 
-        <form action="tirage/tirage.php" method="post">
-            <button type="submit" class="cart-btn banner-btn" name="lancer-tirage" value="tirage">Tirage</button>
-        </form>
+        
 
         
         <!--------------- tirage equipe --------------->
@@ -166,11 +182,6 @@
             }
 
         ?>
-
-
-        
-    <!--------------- fin code PhP --------------->
-
 
 
         <!----------- LISTE DES GROUPES ----------->
@@ -201,8 +212,9 @@
                 ?>
                 <tr>
                     <td> <?php echo ($i+1) ?>e TDS</td>
+
                     <?php
-                        if (isset($groupeA[$i])) {
+                        if (isset($groupeA[$i], $groupeA[$i]) ) {
                             
                     ?>
                         <td><?php echo $groupeA[$i]->getNom() ?> </td>
@@ -226,13 +238,13 @@
         </table>
 
 
-
+    <section class="team-group">  
         <!-------------------------------------------->
         <!----------- affiche groupe A --------------->
         <!-------------------------------------------->
-
-        
-        <div class="container-about">
+    <div class="container-group">
+   
+        <div class="container-about" style='margin-top:40px;'>
             <div class="about-title">
                 <div class="section-title">
                     <h2 data-title="Calendar of team">Groupe A</h2>                    
@@ -245,7 +257,7 @@
                 <tr>
                     <th>GROUPE A</th>
                     <th>Affiche</th>
-                    <th>Score</th>
+                    <th id=''>Score</th>
                     <th></th>
                 </tr>
 
@@ -274,7 +286,7 @@
 
                                 case 1:
                                     if (isset($groupeA)) {
-                                        echo '<span>'.$groupeA[0]->getNom(). '</span> VS <span>'. $groupeA[1]->getNom() .'</span>' 
+                                        echo '<span> <img src='.$groupeA[0]->getLogo(). ' alt="team 3" style="width: 40px;" > </span> VS <span> <img src='. $groupeA[1]->getLogo() .' alt="team 3" style="width: 40px;" > </span>' 
                                     ?>
                                         <input type="hidden" id='m1eq1' name='m1eq1' value=<?php echo $groupeA[0]->getNom()?>  >
                                         <input type="hidden" id='m1eq2' name='m1eq2' value=<?php echo $groupeA[1]->getNom()?>  >
@@ -286,7 +298,7 @@
                                 
                                 case 2:
                                     if (isset($groupeA)) {
-                                        echo '<span>'.$groupeA[2]->getNom(). '</span> VS <span>'. $groupeA[3]->getNom() .'</span>' 
+                                        echo '<span> <img src='.$groupeA[2]->getLogo(). ' alt="team 3" style="width: 40px;" > </span> VS <span> <img src='. $groupeA[3]->getLogo() .' alt="team 3" style="width: 40px;" > </span>' 
                                     ?>
                                         <input type="hidden" id='m2eq1' name='m2eq1' value=<?php echo $groupeA[2]->getNom()?>  >
                                         <input type="hidden" id='m2eq2' name='m2eq2' value=<?php echo $groupeA[3]->getNom()?>  >
@@ -298,7 +310,7 @@
                                 
                                 case 3:
                                     if (isset($groupeA)) {
-                                        echo '<span>'.$groupeA[0]->getNom(). '</span> VS <span>'. $groupeA[2]->getNom() .'</span>' 
+                                        echo '<span> <img src='.$groupeA[0]->getLogo(). ' alt="team 3" style="width: 40px;" > </span> VS <span> <img src='. $groupeA[2]->getLogo() .' alt="team 3" style="width: 40px;" > </span>' 
                                     ?>
                                         <input type="hidden" id='m3eq1' name='m3eq1' value=<?php echo $groupeA[0]->getNom()?>  >
                                         <input type="hidden" id='m3eq2' name='m3eq2' value=<?php echo $groupeA[2]->getNom()?>  >
@@ -310,7 +322,7 @@
                                 
                                 case 4:
                                     if (isset($groupeA)) {
-                                        echo '<span>'.$groupeA[1]->getNom(). '</span> VS <span>'. $groupeA[3]->getNom() .'</span>' 
+                                        echo '<span> <img src='.$groupeA[1]->getLogo(). ' alt="team 3" style="width: 40px;" > </span> VS <span> <img src='. $groupeA[3]->getLogo() .' alt="team 3" style="width: 40px;" > </span>' 
                                     ?>
                                         <input type="hidden" id='m4eq1' name='m4eq1' value=<?php echo $groupeA[1]->getNom()?>  >
                                         <input type="hidden" id='m4eq2' name='m4eq2' value=<?php echo $groupeA[3]->getNom()?>  >
@@ -322,7 +334,7 @@
                                 
                                 case 5:
                                     if (isset($groupeA)) {
-                                        echo '<span>'.$groupeA[0]->getNom(). '</span> VS <span>'. $groupeA[3]->getNom() .'</span>' 
+                                        echo '<span> <img src='.$groupeA[0]->getLogo(). ' alt="team 3" style="width: 40px;" > </span id="span"> VS <span> <img src='. $groupeA[3]->getLogo() .' alt="team 3" style="width: 40px;" > </span>' 
                                     ?>
                                         <input type="hidden" id='m5eq1' name='m5eq1' value=<?php echo $groupeA[0]->getNom()?>  >
                                         <input type="hidden" id='m5eq2' name='m5eq2' value=<?php echo $groupeA[3]->getNom()?>  >
@@ -334,7 +346,7 @@
                                 
                                 case 6:
                                     if (isset($groupeA)) {
-                                        echo '<span>'.$groupeA[1]->getNom(). '</span> VS <span>'. $groupeA[2]->getNom() .'</span>' 
+                                        echo '<span> <img src='.$groupeA[1]->getLogo(). ' alt="team 3" style="width: 40px;" > </span> VS <span> <img src='. $groupeA[2]->getLogo() .' alt="team 3" style="width: 40px;" > </span>' 
                                     ?>
                                         <input type="hidden" id='m6eq1' name='m6eq1' value=<?php echo $groupeA[1]->getNom()?>  >
                                         <input type="hidden" id='m6eq2' name='m6eq2' value=<?php echo $groupeA[2]->getNom()?>  >
@@ -361,30 +373,22 @@
                             <input type="number" disabled id='score2' name='score2' style="width: 2.425rem" value=<?php echo $_SESSION[$nomSession]['scores'][1] ?>  >
                                 
                         <?php
-                            }else{
-                        ?>
-                            <!-- CHANGER SCORE A CHAQUE REDIRECTION -->
-                            
-                            <select name='score1'>
-                                <?php liste_option_but(); ?>
-                            </select>                        
-                            - 
-                            <select name='score2'>
-                                <?php liste_option_but(); ?>
-                            </select>                        
-                        
-                            <?php
                             }
                         ?>
-
-                    </td>
-
-                        <td id="jouer">
+                            
+                    
+                        <div  id="jouer">
                             <input type="hidden" id='numMatch' name='numMatch' value=<?php echo  $i; ?> >
-                            <button class="btn-add btn-score" >Jouer</button>
-                        </td>
-
+                        </div>  
+                    </td>
+                    
                     </form>
+                        <td id="">
+                            <input type="hidden" id='numMatch' name='numMatch' value=</*?php echo  $i; ?*/> >
+                            <label for="click">
+                                 <button class="btn-add btn-score"  >Jouer</button>
+                            </label>
+                        </td>
 
                 </tr>
 
@@ -395,13 +399,13 @@
 
             </tbody>
         </table>
-
+    </div>
 
         <!-------------------------------------------->
         <!----------- affiche groupe b --------------->
         <!-------------------------------------------->
-        
-        <div class="container-about">
+    <div class="container-group"> 
+        <div class="container-about" style='margin-top:40px;'>
             <div class="about-title">
                 <div class="section-title">
                     <h2 data-title="Calendar of team">Groupe B</h2>
@@ -444,7 +448,7 @@
 
                                     case 7:
                                         if (isset($groupeB)) {
-                                            echo '<span>'.$groupeB[0]->getNom(). '</span> VS <span>'. $groupeB[1]->getNom() .'</span>' 
+                                            echo '<span> <img src='.$groupeB[0]->getLogo(). ' alt="team 3" style="width: 40px;" > </span> VS <span id="span"> <img src='. $groupeB[1]->getLogo() .' alt="team 3" style="width: 40px;" > </span>' 
                                         ?>
                                             <input type="hidden" id='m7eq1' name='m7eq1' value=<?php echo $groupeB[0]->getNom()?>  >
                                             <input type="hidden" id='m7eq2' name='m7eq2' value=<?php echo $groupeB[1]->getNom()?>  >
@@ -456,7 +460,7 @@
                                     
                                     case 8:
                                         if (isset($groupeB)) {
-                                            echo '<span>'.$groupeB[2]->getNom(). '</span> VS <span>'. $groupeB[3]->getNom() .'</span>' 
+                                            echo '<span> <img src='.$groupeB[2]->getLogo(). ' alt="team 3" style="width: 40px;" > </span> VS <span> <img src='. $groupeB[3]->getLogo() .' alt="team 3" style="width: 40px;" > </span>' 
                                         ?>
                                             <input type="hidden" id='m8eq1' name='m8eq1' value=<?php echo $groupeB[2]->getNom()?>  >
                                             <input type="hidden" id='m8eq2' name='m8eq2' value=<?php echo $groupeB[3]->getNom()?>  >
@@ -468,7 +472,7 @@
                                     
                                     case 9:
                                         if (isset($groupeB)) {
-                                            echo '<span>'.$groupeB[0]->getNom(). '</span> VS <span>'. $groupeB[2]->getNom() .'</span>' 
+                                            echo '<span> <img src='.$groupeB[0]->getLogo(). ' alt="team 3" style="width: 40px;" > </span> VS <span> <img src='. $groupeB[2]->getLogo() .' alt="team 3" style="width: 40px;" > </span>' 
                                         ?>
                                             <input type="hidden" id='m9eq1' name='m9eq1' value=<?php echo $groupeB[0]->getNom()?>  >
                                             <input type="hidden" id='m9eq2' name='m9eq2' value=<?php echo $groupeB[2]->getNom()?>  >
@@ -480,7 +484,7 @@
                                     
                                     case 10:
                                         if (isset($groupeB)) {
-                                            echo '<span>'.$groupeB[1]->getNom(). '</span> VS <span>'. $groupeB[3]->getNom() .'</span>' 
+                                            echo '<span> <img src='.$groupeB[1]->getLogo(). ' alt="team 3" style="width: 40px;" > </span> VS <span> <img src='. $groupeB[3]->getLogo() .' alt="team 3" style="width: 40px;" > </span>' 
                                         ?>
                                             <input type="hidden" id='m10eq1' name='m10eq1' value=<?php echo $groupeB[1]->getNom()?>  >
                                             <input type="hidden" id='m10eq2' name='m10eq2' value=<?php echo $groupeB[3]->getNom()?>  >
@@ -492,7 +496,7 @@
                                     
                                     case 11:
                                         if (isset($groupeB)) {
-                                            echo '<span>'.$groupeB[0]->getNom(). '</span> VS <span>'. $groupeB[3]->getNom() .'</span>' 
+                                            echo '<span> <img src='.$groupeB[0]->getLogo(). ' alt="team 3" style="width: 40px;" > </span> VS <span> <img src='. $groupeB[3]->getLogo() .' alt="team 3" style="width: 40px;" > </span>' 
                                         ?>
                                             <input type="hidden" id='m11eq1' name='m11eq1' value=<?php echo $groupeB[0]->getNom()?>  >
                                             <input type="hidden" id='m11eq2' name='m11eq2' value=<?php echo $groupeB[3]->getNom()?>  >
@@ -504,7 +508,7 @@
                                     
                                     case 12:
                                         if (isset($groupeB)) {
-                                            echo '<span>'.$groupeB[1]->getNom(). '</span> VS <span>'. $groupeB[2]->getNom() .'</span>' 
+                                            echo '<span> <img src='.$groupeB[1]->getLogo(). ' alt="team 3" style="width: 40px;" > </span> VS <span> <img src='. $groupeB[2]->getLogo() .' alt="team 3" style="width: 40px;" > </span>'
                                         ?>
                                             <input type="hidden" id='m12eq1' name='m12eq1' value=<?php echo $groupeB[1]->getNom()?>  >
                                             <input type="hidden" id='m12eq2' name='m12eq2' value=<?php echo $groupeB[2]->getNom()?>  >
@@ -546,16 +550,19 @@
                                 <?php
                                 }
                             ?>
+                            <div id="jouer">
+                                <input type="hidden" id='numMatch' name='numMatch' value=<?php echo  $i; ?> >
+                            </div>
 
-                        </td>
-
-                        <td id="jouer">
-                            <input type="hidden" id='numMatch' name='numMatch' value=<?php echo  $i; ?> >
-                            <button class="btn-add btn-score">Jouer</button>
                         </td>
 
                     </form>
-
+                        <td id="">
+                            <!-- <input type="hidden" id='numMatch' name='numMatch' value=</*?php echo  $i; ?*/> > -->
+                            <label for="click">
+                                <button class="btn-add btn-score">Jouer</button>
+                            </label>
+                        </td>
                 </tr>
 
                 <?php
@@ -565,7 +572,8 @@
 
             </tbody>
         </table>
-
+     </div>
+  </section>
 
         <!-------------------------------------------->
         <!-------------------------------------------->
@@ -573,72 +581,71 @@
         <!-------------------------------------------->
         <!-------------------------------------------->
 
-        <div class="group row">
-
-        <div class="container-about">
-            <div class="about-title">
-                <div class="section-title">
-                    <h2 data-title="Classement of team">Classement Groupe A</h2>
+    <section class="group row">
+        <div class="container-classement">
+            <div class="container-about">
+                <div class="about-title">
+                    <div class="section-title">
+                        <h2 data-title="Classement of team">Classement Groupe A</h2>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <table class="styled-table" >
-            
-            <thead>
-                <h3>GROUPE A</h3>
-                <tr>
-                    <th></th>
-                    <th>MJ</th>
-                    <th>MG</th>
-                    <th>MN</th>
-                    <th>MP</th>
-                    <th>BP</th>
-                    <th>BC</th>
-                    <th>+/-</th>
-                    <th>Pt</th>
-                </tr>
+            <table class="styled-table" >
                 
-            </thead>
-            
-            <tbody>
-
-                <?php
-                
-                    $ligneCase= array('nomEquipe', 'mj', 'mg', 'mn', 'mp', 'bp', 'bc', 'diff', 'point');
-
-                    for ($i=0; $i < 4 ; $i++) {
-
-                        echo '<tr class=" group-row" onclick="currentRow('.$i.')" > ';
-
-                            for ($j=0; $j < 9; $j++) {
-                ?>            
-                                <td> 
-                                    <?php
-                                        if (isset($_SESSION['classement-Grpe-A'])) {
-                                            
-                                            echo $_SESSION['classement-Grpe-A'][$i][ $ligneCase[$j] ] ;
-                                        
-                                        } else if($ligneCase[$j] == 'nomEquipe') {
-
-                                            echo ($i+1) .'TDS';
-
-                                        }else {
-                                            echo 0;
-                                        }
-                                    ?> 
-                                </td>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>MJ</th>
+                        <th>MG</th>
+                        <th>MN</th>
+                        <th>MP</th>
+                        <th>BP</th>
+                        <th>BC</th>
+                        <th>+/-</th>
+                        <th>Pt</th>
+                    </tr>
                     
-                <?php
-                            }
-                        echo '</tr>';
-                    }
-                ?>
+                </thead>
                 
-            </tbody>
-            
-        </table>
+                <tbody>
 
+                    <?php
+                    
+                        $ligneCase= array('nomEquipe', 'mj', 'mg', 'mn', 'mp', 'bp', 'bc', 'diff', 'point');
+
+                        for ($i=0; $i < 4 ; $i++) {
+
+                            echo '<tr class=" group-row" onclick="currentRow('.$i.')" > ';
+
+                                for ($j=0; $j < 9; $j++) {
+                    ?>            
+                                    <td> 
+                                        <?php
+                                            if (isset($_SESSION['classement-Grpe-A'])) {
+                                                
+                                                echo $_SESSION['classement-Grpe-A'][$i][ $ligneCase[$j] ] ;
+                                            
+                                            } else if($ligneCase[$j] == 'nomEquipe') {
+
+                                                echo ($i+1) .'TDS';
+
+                                            }else {
+                                                echo 0;
+                                            }
+                                        ?> 
+                                    </td>
+                        
+                    <?php
+                                }
+                            echo '</tr>';
+                        }
+                    ?>
+                    
+                </tbody>
+                
+            </table>
+        </div>
             
             <!-------------------------------------------->
             <!-------------------------------------------->
@@ -646,72 +653,71 @@
             <!-------------------------------------------->
             <!-------------------------------------------->
 
-            
-        <div class="container-about">
-            <div class="about-title">
-                <div class="section-title">
-                    <h2 data-title="Classement of team">Classement Groupe B</h2>
+        <div class="container-classement">   
+            <div class="container-about">
+                <div class="about-title">
+                    <div class="section-title">
+                        <h2 data-title="Classement of team">Classement Groupe B</h2>
+                    </div>
                 </div>
             </div>
-        </div>
 
 
-        <table class="styled-table" >
-            
-            <thead>
-                <h3>GROUPE B</h3>
-                <tr>
-                    <th></th>
-                    <th>MJ</th>
-                    <th>MG</th>
-                    <th>MN</th>
-                    <th>MP</th>
-                    <th>BP</th>
-                    <th>BC</th>
-                    <th>+/-</th>
-                    <th>Pt</th>
-                </tr>
+            <table class="styled-table" >
                 
-            </thead>
-            
-            <tbody>
-
-                <?php
-                
-                    $ligneCase= array('nomEquipe', 'mj', 'mg', 'mn', 'mp', 'bp', 'bc', 'diff', 'point');
-
-                    for ($i=0; $i < 4 ; $i++) {
-                        echo '<tr>';
-
-                            for ($j=0; $j < 9; $j++) {
-                ?>            
-                                <td> 
-                                    <?php
-                                        if (isset($_SESSION['classement-Grpe-B'])) {
-                                            
-                                            echo $_SESSION['classement-Grpe-B'][$i][ $ligneCase[$j] ] ;
-                                        
-                                        } else if($ligneCase[$j] == 'nomEquipe') {
-
-                                            echo ($i+1) .'TDS';
-
-                                        }else {
-                                            echo 0;
-                                        }
-                                    ?> 
-                                </td>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>MJ</th>
+                        <th>MG</th>
+                        <th>MN</th>
+                        <th>MP</th>
+                        <th>BP</th>
+                        <th>BC</th>
+                        <th>+/-</th>
+                        <th>Pt</th>
+                    </tr>
                     
-                <?php
-                            }
-                        echo '</tr>';
-                    }
-                ?>
+                </thead>
                 
-            </tbody>
-            
-        </table>
+                <tbody>
 
+                    <?php
+                    
+                        $ligneCase= array('nomEquipe', 'mj', 'mg', 'mn', 'mp', 'bp', 'bc', 'diff', 'point');
+
+                        for ($i=0; $i < 4 ; $i++) {
+                            echo '<tr>';
+
+                                for ($j=0; $j < 9; $j++) {
+                    ?>            
+                                    <td> 
+                                        <?php
+                                            if (isset($_SESSION['classement-Grpe-B'])) {
+                                                
+                                                echo $_SESSION['classement-Grpe-B'][$i][ $ligneCase[$j] ] ;
+                                            
+                                            } else if($ligneCase[$j] == 'nomEquipe') {
+
+                                                echo ($i+1) .'TDS';
+
+                                            }else {
+                                                echo 0;
+                                            }
+                                        ?> 
+                                    </td>
+                        
+                    <?php
+                                }
+                            echo '</tr>';
+                        }
+                    ?>
+                    
+                </tbody>
+                
+            </table>
         </div>
+    </section>
 
         <!-------------------------------------------->
         <!-------------------------------------------->
@@ -1067,6 +1073,7 @@
    </div>
 
     <script src="js/app.js"></script>
+    <script src="js/score.js"></script>
     <script src="js/focusRow.js"></script>
 </body>
   <?php require 'footer.php';?> 
