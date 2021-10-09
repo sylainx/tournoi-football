@@ -394,6 +394,27 @@ input[type="checkbox"] {
   font-weight: 400;
 }
 
+/*.about-section
+{
+  background-color: var(--dark);
+}
+.about-text,
+.about-img{
+    width: 50%;
+    padding: 0 15px;
+}
+.about-text h3{
+    font-size: 30px;
+    text-transform: capitalize;
+    margin: 0 0 15px;
+}
+.about-text h3{
+    margin: 0 0 15px;
+}
+.about-img img{
+  width: 80%;
+  border-radius: 10px;
+}*/
 /*************Responsivity home Team cart and about us ***************/
 @media screen and (max-width: 700px) {
   .card-home {
@@ -508,7 +529,7 @@ input[type="checkbox"] {
 .banner-btn {
   padding: 1rem 3rem;
   text-transform: uppercase;
-  letter-spacing: 5px;
+  letter-spacing: #E2293F;
   font-size: 1rem;
   background: #E2293F;
   color: var(--mainBlack);
@@ -689,7 +710,7 @@ footer {
   width: 100%;
 }
 
-.score1 input, .score2 input {
+.score1 select, .score2 select {
   width: 30px;
   height: 30px;
   background-color: #da9a29;
@@ -777,10 +798,7 @@ h5 {
 }
 
 .styled-table {
-  /*border: 1px solid;
-    
-    max-width: 700px;
-    width: 80%;*/
+  display: table;
   margin: 2rem auto;
   font-size: 0.9rem;
   font-family: sans-serif;
@@ -797,6 +815,7 @@ h5 {
 }
 
 .styled-table td {
+  display: table-cell;
   padding: 12px 15px;
 }
 
@@ -805,17 +824,20 @@ h5 {
   cursor: pointer;
 }
 
-.styled-table tbody tr:nth-of-type(even) {
+.styled-table tbody tr:nth-of-type(even),
+.styled-table .tbody .tr:nth-of-type(even) {
   background-color: #f3f3f3;
   cursor: pointer;
 }
 
-.styled-table tbody tr:last-of-type {
+.styled-table tbody tr:last-of-type,
+.styled-table .tbody .tr:last-of-type {
   border-bottom: 2px solid #009879;
   cursor: pointer;
 }
 
-.styled-table tbody tr.active {
+.styled-table tbody tr.active,
+.styled-table .tbody .tr.active {
   font-weight: bold;
   color: white;
   background-color: darkslateblue;
@@ -961,8 +983,8 @@ h5 {
 .cards {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(270px, 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  -ms-grid-columns: (minmax(300px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   padding: 20px;
   grid-gap: 40px;
 }

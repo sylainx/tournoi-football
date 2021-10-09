@@ -1,4 +1,4 @@
- @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 /*--------------------
 variables
@@ -335,7 +335,27 @@ nav{ //Niesting
   font-family:var(--cursive-font);
   font-weight: 400;
 }
-
+/*.about-section
+{
+  background-color: var(--dark);
+}
+.about-text,
+.about-img{
+    width: 50%;
+    padding: 0 15px;
+}
+.about-text h3{
+    font-size: 30px;
+    text-transform: capitalize;
+    margin: 0 0 15px;
+}
+.about-text h3{
+    margin: 0 0 15px;
+}
+.about-img img{
+  width: 80%;
+  border-radius: 10px;
+}*/
 /*************Responsivity home Team cart and about us ***************/
   @media screen and(max-width:700px) {
       .card-home{
@@ -430,7 +450,7 @@ nav{ //Niesting
   .banner-btn {
     padding: 1rem 3rem;
     text-transform: uppercase;
-    letter-spacing: 5px;
+    letter-spacing: #E2293F;
     font-size: 1rem;
     background: #E2293F;
     color: var(--mainBlack);
@@ -572,7 +592,7 @@ footer{
     width: 100%;
    
   }
-  .score1 input,.score2 input{
+  .score1 select,.score2 select{
     width: 30px;
     height: 30px;
     background-color:#da9a29 ;
@@ -582,6 +602,7 @@ footer{
     outline: none;
     font-size: 20px;
   }
+  
   /*.score1,.score2{
     width: 30px;
     height: 30px;
@@ -646,11 +667,8 @@ footer{
   }
 
   .styled-table {
-    /*border: 1px solid;
-    
-    max-width: 700px;
-    width: 80%;*/
-   margin: 2rem auto;
+    display:table;
+    margin: 2rem auto;
     font-size: 0.9rem;
     font-family: sans-serif;
     border-collapse: collapse;
@@ -658,32 +676,41 @@ footer{
     box-shadow: 0 0 20px rgba(0,0,0,0.15);
     
   }
+ 
+
   .styled-table thead tr{
     background-color: #009879;
     color: #ffffff;
     text-align: center;
   }
+
   .styled-table td{
+    display: table-cell;
     padding: 12px 15px;
   }
   .styled-table tr{
     border-bottom: 1px solid #dddddd;
     cursor: pointer;
   }
-  .styled-table tbody tr:nth-of-type(even){
+
+  .styled-table tbody tr:nth-of-type(even),
+  .styled-table .tbody .tr:nth-of-type(even){
     background-color: #f3f3f3;
     cursor: pointer;
   }
-  .styled-table tbody tr:last-of-type{
+
+  .styled-table tbody tr:last-of-type,
+  .styled-table .tbody .tr:last-of-type{
     border-bottom: 2px solid #009879;
     cursor: pointer;
   }
-  .styled-table tbody tr.active{
+  .styled-table tbody tr.active,
+  .styled-table .tbody .tr.active{
     font-weight: bold;
     color: white;
     background-color: darkslateblue;
-
   }
+
 
   /****************Responsivity calendar page***************/
   
@@ -790,7 +817,7 @@ footer{
   }
   .cards{
       display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(270px ,1fr));
+      grid-template-columns: repeat(auto-fit,minmax(300px ,1fr));
       padding: 20px;
       grid-gap:40px;
   }
