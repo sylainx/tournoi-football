@@ -2,7 +2,7 @@
     <div class="container-footer">
         <div id="content-footer1">
             <div class="content-text1">
-                <img src="" alt="logo Inuka" id="logo-footer">
+                
                 <p></p>
                 <p>
                     <i class="fas fa-map-marker-alt"> </i>
@@ -16,14 +16,7 @@
                         </p>
                    
                 </div>
-                    <!--<div class="mail-schedule row">
-                        <p>
-                        <i class="fas fa-envelope"> </i>
-                            info@splashteam
-                        </p>
-                        <p>
-                        
-                    </div>-->
+                    
                     
                 
             </div>
