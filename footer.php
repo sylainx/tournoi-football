@@ -1,8 +1,9 @@
 <footer id="p">
     <div class="container-footer">
         <div id="content-footer1">
+            <div class="container-content-text">
+            <!--  -->
             <div class="content-text1">
-                <img src="" alt="logo Inuka" id="logo-footer">
                 <p></p>
                 <p>
                     <i class="fas fa-map-marker-alt"> </i>
@@ -16,14 +17,6 @@
                         </p>
                    
                 </div>
-                    <!--<div class="mail-schedule row">
-                        <p>
-                        <i class="fas fa-envelope"> </i>
-                            info@splashteam
-                        </p>
-                        <p>
-                        
-                    </div>-->
                     
                 
             </div>
@@ -32,9 +25,10 @@
                 <p> <a href="dashboard.php">Accueil</a></p>
                 <p> <a href="classements.php">Classements</a></p>
                 <p> <a href="statistics.php">Stat|Team</a></p>
-                <p> <a href="login/logout-user.php" >Se Deconnecter</a></p>
+                <p> <a href="login/logout-user.php" >Deconnexion</a></p>
              </div>
-             
+        </div>
+             <!--  -->
             <div class="content-text3">
                 <h3>SIGN UP FOR EMAIL ALERTS</h3>
                 <p>select topics and stay current with our latest news.</p>
@@ -52,7 +46,7 @@
                     <a href="#" id="animation"><i class="fab fa-instagram"></i></a>
                     <a href="#" id="animation"><i class="fab fa-youtube"></i></a>
                 </div>  
-                <div class="designer">Proudly designed and developed by us(Ludens509,GS7)</div>
+                <div class="designer">Proudly designed and developed by us(Ludens509,GS7,Hashley)</div>
         </div>
     </div>
      
