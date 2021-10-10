@@ -1,5 +1,10 @@
 <?php
     session_start();
+
+    // variables contenant les erreurs formulaires
+    $_SESSION['errors'] = $errors= array();
+
+
     // redirectin vers la page d un dossier plus haut
     header('Location: ../dashboard.php');    
 

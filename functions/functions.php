@@ -69,13 +69,11 @@
                     echo '<br>Nombre total de point: '. $gagnant['gagnant']->getBut() ;
                     echo '<br>Nombre total de but : '. $match->getScores()[0] . '-'. $match->getScores()[1];
                 }
-                else{
-                    //echo '<br>Match null: ' ;
-                    //echo '<br>Nombre total de but : '. $match->getScores()[0] . '-'. $match->getScores()[0];
-                }
-
+                
                 // ==================================== FIN ====================================
                     
+            }else {
+                $_SESSION['errors']= $_SESSION["error_match_$numMatch"] = "Les 2 equipes ne sont pas dans le meme groupe";
             }
 
             // déclencher demi final
@@ -83,6 +81,8 @@
                 qualifier_pour_demiFinal();
 
             }
+        }else {
+            $_SESSION['errors']= $_SESSION["error_match_$numMatch"] = "Erreur de saisie";
         }
     }
 
@@ -294,3 +294,5 @@
         }
 
     }
+
+ 

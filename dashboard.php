@@ -1,6 +1,6 @@
 <?php
     session_start();
-
+    
     //DETRUIRE les session s'il n'y a plus de cookies
     if ( ! isset( $_COOKIE['tirageGroupeA'], $_COOKIE['tirageGroupeB'] ) ) {
         session_destroy();
@@ -44,7 +44,6 @@
     />
     <link rel="stylesheet" href= "css/style.css"/>
     <title>Accueil</title>
-
     
 	<style>
 		.table{
@@ -209,5 +208,6 @@
     <script src="js/app.js"></script>
     <script src="js/score.js"></script>
     <script src="js/focusRow.js"></script>
+    
 </body>
 </html>
