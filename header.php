@@ -10,7 +10,7 @@
                 <li><a class="active" href="dashboard.php">Accueil</a></li>
                 <li><a class="active" href="classements.php">Classements</a></li>
                 <li><a class="active" href="statistics.php">Stat|Team</a></li>
-                <li><a class="active" href="login/logout-user.php" >Se Deconnecter</a></li>
+                <li><a class="active" href="login/deconnexion.php" >Se Deconnecter</a></li>
             </ul> 
              
       </nav>
