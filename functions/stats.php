@@ -1,12 +1,11 @@
 <?php
     session_start();
     // redirectin vers la page d un dossier plus haut
-    // header('Location: ../index.php');    
+    header('Location: ../dashboard.php');    
 
-    require dirname(__DIR__) . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . 'Equipe.php';
-    require dirname(__DIR__) . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . 'Matchs.php';
-    
-    require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'ConnexionBD' . DIRECTORY_SEPARATOR . 'base.php';
+    require('../classes/Equipe.php');
+    require('../classes/Matchs.php');
+    require_once dirname(__DIR__) .'../'. DIRECTORY_SEPARATOR . 'ConnexionBD' . DIRECTORY_SEPARATOR . 'base.php';
     include('functions.php');
 
     
@@ -47,6 +46,9 @@
     }
 
 
+    echo '<pre>';
+    print_r($_POST);
+    echo '<pre>';
 
     // redirection
     exit();
