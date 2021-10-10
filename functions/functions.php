@@ -6,7 +6,7 @@
     /*--------------------------------------------------------------------------------------- */ 
 
     function liste_option_but(){
-        for ($i=0; $i <= 10; $i++){
+        for ($i=0; $i <= 15; $i++){
     ?>
         <option value=<?php echo $i; ?> ><?php echo $i; ?> </option>
 
@@ -205,6 +205,12 @@
             $score1 = $_POST['score1'];
             $score2 = $_POST['score2'];
             
+            // associe un score aléatoire comme tir au but
+            while ($score1 === $score2) {
+                $score1= rand(0,15);
+                $score2= rand(0,15);
+            }
+
             setScoreDemiFinalBD($numMatch,$score1,$score2);
             
             // déclencher petite et grande finale
@@ -243,6 +249,14 @@
             $score1 = $_POST['score1'];
             $score2 = $_POST['score2'];
             
+            
+            // associe un score aléatoire comme tir au but
+            while ($score1 === $score2) {
+                $score1= rand(0,15);
+                $score2= rand(0,15);
+            }
+
+
             setScorePetiteFinalBD($numMatch, $nomEquipe1, $nomEquipe2, $score1,$score2);
             echo '<br>apres setscorePetite';
 
@@ -267,6 +281,13 @@
             $score1 = $_POST['score1'];
             $score2 = $_POST['score2'];
             
+            
+            // associe un score aléatoire comme tir au but
+            while ($score1 === $score2) {
+                $score1= rand(0,15);
+                $score2= rand(0,15);
+            }
+
             setScoreGrandeFinalBD($numMatch, $nomEquipe1, $nomEquipe2, $score1,$score2);
             echo '<br>apres setscoreGrande';
 

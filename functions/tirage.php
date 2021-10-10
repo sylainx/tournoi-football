@@ -2,11 +2,11 @@
     session_start();
    
     // redirectin
-    header('Location: ../index.php');
+    header('Location: ../dashboard.php');
 
    //importation des classes        
-   require dirname(__DIR__) . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . 'Equipe.php';    
-   require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'ConnexionBD' . DIRECTORY_SEPARATOR . 'base.php';
+   require ('../classes/Equipe.php');    
+   require_once ('../ConnexionBD/base.php');
    require_once('../functions/appelerBD.php');
    
 
@@ -28,14 +28,14 @@
         global $bdd;
         
                 // chaque equipe                    
-        $eqBRA = new Equipe('Bresil','images/bra.png');
-        $eqARG = new Equipe('Argentine','images/arg.png');
-        $eqFRA = new Equipe('France','images/fra.png');
-        $eqITA = new Equipe('Italie','images/ita.png');
-        $eqESP = new Equipe('Espagne','images/esp.png');
-        $eqGER = new Equipe('Allemagne','images/ger.png');
-        $eqPOR = new Equipe('Portugal','images/por.png');
-        $eqHTI = new Equipe('Haiti','images/hti.png');
+        $eqBRA = new Equipe('Bresil','Icons/brazil.png');
+        $eqARG = new Equipe('Argentine','Icons/argentina.svg');
+        $eqFRA = new Equipe('France','Icons/france.png');
+        $eqITA = new Equipe('Italie','Icons/italia.svg');
+        $eqESP = new Equipe('Espagne','Icons/spain.svg');
+        $eqGER = new Equipe('Allemagne','Icons/germany.png');
+        $eqPOR = new Equipe('Portugal','Icons/portugal.svg');
+        $eqHTI = new Equipe('Haiti','Icons/haiti.png');
 
         // tableau contenant l'ensemble des équipes du championnat
         $equipes = array( $eqBRA, $eqARG, $eqFRA, $eqITA, $eqESP, $eqGER, $eqPOR, $eqHTI );

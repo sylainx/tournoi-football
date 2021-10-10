@@ -1,6 +1,6 @@
 <?php
 
-    require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'ConnexionBD' . DIRECTORY_SEPARATOR . 'base.php';
+    require_once ('../ConnexionBD/base.php');
 
     // -------------------------- classe Match -----------------------
 

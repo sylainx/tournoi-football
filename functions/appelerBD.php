@@ -73,7 +73,86 @@
         }
 
         $stmtGrpeB->closeCursor();
-    
+
+        
+        /* ========================== CONFRONTATION DIRECT ==========================*/
+        
+        // echo '<pre>';
+        // print_r($groupeA);
+        // echo '</pre>';
+
+        for ($i=0; $i < count($groupeA); $i++) { 
+
+            $temp =null;
+            for ($j= $i+1; $j < count($groupeA); $j++) { 
+                
+                if ($groupeA[$i]['point'] == $groupeA[$j]['point'] ) {
+
+                    // echo "<br>".$groupeA[$i]['nomEquipe'].' a meme point que '.$groupeA[$j]['nomEquipe'];
+                    
+                    $sqlConfrontationDirect = "SELECT gagnant FROM listematchs WHERE equipe1 IN (:nomEquipe1, :nomEquipe2) AND equipe2 IN (:nomEquipe1, :nomEquipe2) ";
+                    $stmtConfrontationDirect = $bdd->prepare($sqlConfrontationDirect);
+                    $stmtConfrontationDirect->execute(array(
+                        ':nomEquipe1' =>$groupeA[$i]['nomEquipe'],
+                        ':nomEquipe2' =>$groupeA[$j]['nomEquipe']
+                    ));
+
+                    if ($stmtConfrontationDirect->rowCount() > 0 ) {
+                        
+                        $donneeBD = $stmtConfrontationDirect->fetch();
+                    
+                        extract($donneeBD);
+                        
+                        if ($gagnant == $groupeA[$j]['nomEquipe'] ) {
+                            $temp = $groupeA[$i];
+                            $groupeA[$i] = $groupeA[$j];
+                            $groupeA[$j] = $temp;
+                        }
+
+                    }
+                }
+                
+            }
+        }
+
+
+        for ($i=0; $i < count($groupeB); $i++) { 
+
+            $temp =null;
+            for ($j= $i+1; $j < count($groupeB); $j++) { 
+                
+                if ($groupeB[$i]['point'] == $groupeB[$j]['point'] ) {
+
+                    // echo "<br>".$groupeB[$i]['nomEquipe'].' a meme point que '.$groupeB[$j]['nomEquipe'];
+                    
+                    $sqlConfrontationDirect = "SELECT gagnant FROM listematchs WHERE equipe1 IN (:nomEquipe1, :nomEquipe2) AND equipe2 IN (:nomEquipe1, :nomEquipe2) ";
+                    $stmtConfrontationDirect = $bdd->prepare($sqlConfrontationDirect);
+                    $stmtConfrontationDirect->execute(array(
+                        ':nomEquipe1' =>$groupeB[$i]['nomEquipe'],
+                        ':nomEquipe2' =>$groupeB[$j]['nomEquipe']
+                    ));
+
+                    if ($stmtConfrontationDirect->rowCount() > 0 ) {
+                        
+                        $donneeBD = $stmtConfrontationDirect->fetch();
+                    
+                        extract($donneeBD);
+                        
+                        if ($gagnant == $groupeB[$j]['nomEquipe'] ) {
+                            $temp = $groupeB[$i];
+                            $groupeB[$i] = $groupeB[$j];
+                            $groupeB[$j] = $temp;
+                        }
+
+                    }
+                }
+                
+            }
+        }
+
+        /* ========================== FIN ==========================*/
+
+
         
         //définir variable session pour statistique match
         $_SESSION['classement-Grpe-A'] = $groupeA;

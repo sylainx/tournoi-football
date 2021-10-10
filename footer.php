@@ -2,7 +2,7 @@
     <div class="container-footer">
         <div id="content-footer1">
             <div class="content-text1">
-                <img src="./Images/logo-f.png "alt="logo Inuka" id="logo-footer">
+                <img src="" alt="logo Inuka" id="logo-footer">
                 <p></p>
                 <p>
                     <i class="fas fa-map-marker-alt"> </i>
@@ -29,10 +29,10 @@
             </div>
             <div class="content-text2">
                 <h3>QUICK LINKS</h3>
-                <p> <a href="index.php">Acceuil</a></p>
-                <p> <a href="calendrier.php">calendrier</a></p>
-                <p>unavalaible</p>
-                <p>unavalaible</p>
+                <p> <a href="dashboard.php">Accueil</a></p>
+                <p> <a href="classements.php">Classements</a></p>
+                <p> <a href="statistics.php">Stat|Team</a></p>
+                <p> <a href="login/logout-user.php" >Se Deconnecter</a></p>
              </div>
              
             <div class="content-text3">

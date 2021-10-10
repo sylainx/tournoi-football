@@ -25,9 +25,9 @@ const cartContent =document.querySelector(".cart-content");
 let buttonsDOM =[];
 class UI{
 
-getCardButtons(){
+  getCardButtons(){
   
-  const buttons=[...document.querySelectorAll(".btn-add")];
+  const buttons=[...document.querySelectorAll(".btn-add") ];
       buttonsDOM =buttons;
       buttons.forEach(button =>{
 
@@ -39,7 +39,7 @@ getCardButtons(){
 } 
 
 
-      showCart(){
+    showCart(){
         cartOverlay.classList.add('transparentBcg');
         cartDOM.classList.add('showCart');
     }
