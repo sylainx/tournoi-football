@@ -31,7 +31,7 @@
         $eqBRA = new Equipe('Bresil','Icons/brazil.png');
         $eqARG = new Equipe('Argentine','Icons/argentina.svg');
         $eqFRA = new Equipe('France','Icons/france.png');
-        $eqITA = new Equipe('Italie','Icons/italia.svg');
+        $eqITA = new Equipe('Italie','Icons/italia2.png');
         $eqESP = new Equipe('Espagne','Icons/spain.svg');
         $eqGER = new Equipe('Allemagne','Icons/germany.png');
         $eqPOR = new Equipe('Portugal','Icons/portugal.svg');

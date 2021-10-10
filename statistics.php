@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href= "css/style.css"/>
+    <link rel="stylesheet" href= "css/card-infos.css"/>
     <title>Stat|team</title>
 </head>
 <body>
@@ -15,11 +16,57 @@
      <!--stat section start--> 
      <section class="locations-section sec-padding" id="Locations">
           <div class="container-cards">
-              <div class="row">
-                  <div class="section-title">
+
+          <!--  -->
+          <div class="">
+                  <div class="section-title" style="text-align:center;">
                       <h2 data-title="Stats Team">some Statistics</h2>
                   </div>
               </div>
+            <!--  -->
+
+          <div class="container-statistic">
+
+          <section class="content-infos-competions">
+
+                <div class="card-infos-competition" id='box1'>
+                    <div class="container-box bx">
+                        <h4><b>% match</b></h4>
+                        <p>
+                          5246 
+                      </p>
+                    </div>
+                </div> 
+
+                <div class="card-infos-competition" id='box2'>
+                    <div class="container-box">
+                        <h4><b>total goal</b></h4>
+                        <p>
+                           2506 
+                        </p>
+                    </div>
+                </div> 
+                <div class="card-infos-competition" id='box3'>
+                    <div class="container-box">
+                        <h4><b>Ratio match</b></h4>
+                        <p> 
+                          2504 
+                        </p>
+                           
+                    </div>
+                </div> 
+                <div class="card-infos-competition" id='box4'>
+                    <div class="container-box">
+                        <h4><b> % victory</b></h4>
+                        <p>
+                          52555
+                        </p>
+                    </div>
+                </div> 
+        </section>
+
+          </div>
+            
               <div class="card-items">
                 <div class="cards">
                   <div class="card card1">

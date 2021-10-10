@@ -10,7 +10,7 @@ USE tournoisoccer;
 -- Structure de la table `classementgroupea`
 --
 
-CREATE TABLE `classementgroupea` (
+CREATE OR REPLACE TABLE `classementgroupea` (
   `idEquipe` int(10) UNSIGNED NOT NULL,
   `nomEquipe` varchar(50) NOT NULL,
   `groupe` varchar(50) NOT NULL,
@@ -31,7 +31,7 @@ CREATE TABLE `classementgroupea` (
 -- Structure de la table `classementgroupeb`
 --
 
-CREATE TABLE `classementgroupeb` (
+CREATE OR REPLACE TABLE `classementgroupeb` (
   `idEquipe` int(10) UNSIGNED NOT NULL,
   `nomEquipe` varchar(50) NOT NULL,
   `groupe` varchar(50) NOT NULL,
@@ -52,7 +52,7 @@ CREATE TABLE `classementgroupeb` (
 -- Structure de la table `demifinal`
 --
 
-CREATE TABLE `demifinal` (
+CREATE OR REPLACE TABLE `demifinal` (
   `id` int(10) DEFAULT NULL,
   `equipe1` varchar(255) NOT NULL,
   `equipe2` varchar(255) NOT NULL,
@@ -67,7 +67,7 @@ CREATE TABLE `demifinal` (
 -- Structure de la table `grandefinal`
 --
 
-CREATE TABLE `grandefinal` (
+CREATE OR REPLACE TABLE `grandefinal` (
   `id` int(10) NOT NULL,
   `nomEquipe` varchar(255) NOT NULL,
   `logo` varchar(255) DEFAULT NULL,
@@ -80,7 +80,7 @@ CREATE TABLE `grandefinal` (
 -- Structure de la table `listematchs`
 --
 
-CREATE TABLE `listematchs` (
+CREATE OR REPLACE TABLE `listematchs` (
   `numeroMatch` int(10) NOT NULL,
   `equipe1` varchar(20) NOT NULL,
   `equipe2` varchar(20) NOT NULL,
@@ -95,7 +95,7 @@ CREATE TABLE `listematchs` (
 -- Structure de la table `petitefinal`
 --
 
-CREATE TABLE `petitefinal` (
+CREATE OR REPLACE TABLE `petitefinal` (
   `id` int(10) NOT NULL,
   `nomEquipe` varchar(255) NOT NULL,
   `logo` varchar(255) DEFAULT NULL,
@@ -138,12 +138,12 @@ ALTER TABLE `grandefinal`
 -- AUTO_INCREMENT pour la table `classementgroupea`
 --
 ALTER TABLE `classementgroupea`
-  MODIFY `idEquipe` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=523;
+  MODIFY `idEquipe` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `classementgroupeb`
 --
 ALTER TABLE `classementgroupeb`
-  MODIFY `idEquipe` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=520;
+  MODIFY `idEquipe` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 
 

@@ -54,6 +54,7 @@
 			box-shadow: 0 0 20px rgba(0,0,0,0.15);
 			margin: 2rem auto;
     		font-size: 0.9rem;
+            border-radius:20px;
 		}
 
 		.thead
@@ -64,6 +65,7 @@
 			background-color: #009879;
 			color: #ffffff;
 			text-align: center;
+            border-radius: 20px;
 		}
 
 		.tbody
@@ -101,13 +103,6 @@
     <div class="container-calendar">   
        <!---->
         
-            <div class="container-about" style='margin:35px;'>
-                <div class="about-title">
-                        <div class="section-title">
-                            <h2 data-title="Calendar of team">Liste d'equipe</h2>                            
-                        </div>
-                </div>
-            </div>
         
         <section class="team-list">
             <!----------- LISTE DES GROUPES ----------->

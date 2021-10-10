@@ -178,9 +178,11 @@ nav{ //Niesting
     }
     #click:checked ~ ul{
         left: 0%;
+        z-index: 5000;
     }
     #click:checked ~ ul li a{
         margin-left: 0px;
+        color: white;
     }
 }
 
@@ -316,7 +318,7 @@ nav{ //Niesting
 
  
 .section-title{
-  width: 100%;
+  // width: 100%;
   padding:0 15px;
   text-align: center;
   margin: 30px;
@@ -493,6 +495,10 @@ footer{
             text-align: left;
             margin: 0 50px 0;  
         }
+        .container-content-text{
+          display: flex;
+          justify-content: space-around;
+        }
  }
 
  .content-text1{
@@ -503,6 +509,10 @@ footer{
          @extend .phone-number;
      }
  }
+        .content-text2{
+          margin-left: 250px;
+          
+        }
         .content-text3{
                 span{
                     height: 40px;
@@ -603,14 +613,7 @@ footer{
     font-size: 20px;
   }
   
-  /*.score1,.score2{
-    width: 30px;
-    height: 30px;
-    color: gray;
-    background-color: indigo;
-    color: gray;
-    background-color: indigo;
-  }*/
+ 
   .score-content{
     justify-content: space-between;
     width:100%;
@@ -663,7 +666,7 @@ footer{
     padding: 50px;
   }
   .btn-tirage{
-    padding: 25px;
+    padding-top: 25px;
   }
 
   .styled-table {
@@ -676,12 +679,17 @@ footer{
     box-shadow: 0 0 20px rgba(0,0,0,0.15);
     
   }
+  
  
 
   .styled-table thead tr{
     background-color: #009879;
     color: #ffffff;
     text-align: center;
+    border-radius: 20px;
+  }
+  .styled-table thead {
+    border-radius: 20px;
   }
 
   .styled-table td{
@@ -702,6 +710,7 @@ footer{
   .styled-table tbody tr:last-of-type,
   .styled-table .tbody .tr:last-of-type{
     border-bottom: 2px solid #009879;
+    border-radius: 20px;
     cursor: pointer;
   }
   .styled-table tbody tr.active,
@@ -726,7 +735,7 @@ footer{
   .team-list{
     position: relative;
     width:100%;
-    height: 100vh;
+    height: 85vh;
     background: var(--dark);
     overflow: hidden;
 }
@@ -799,6 +808,11 @@ footer{
     grid-template-columns: repeat(1, 1fr);
   }
 }
+@media screen and (max-width: 1000px) {
+  .team-list {
+    height: 100vh;
+  }
+}
 /***********************WAVE EFFET END************/
 
 
@@ -840,7 +854,8 @@ footer{
     width: 100%;
     position: absolute;
     top: 0;
-    left: 0; .container{
+    left: 0; 
+    .container{
       position: absolute;
       top: 50%;
       left: 50%;
@@ -854,10 +869,10 @@ footer{
       padding: 30px;
       box-shadow: 0 0 8px rgba(0,0,0,0.1);
     }
+    /*//////////Gestion du conteneur des card/////////////*/
     
-    border-radius: 20px 20px 0 0;
-    opacity: 0.5;
-  }
+   
+
   .card1>.container-img:after{
       background-image: linear-gradient(135deg,#0100ec,#fb36f4);
   }
