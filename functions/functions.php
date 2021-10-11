@@ -29,7 +29,7 @@
 
         if ( isset($_POST[$codeNomEq1]) && isset($_POST[$codeNomEq2]) 
             && isset($_POST['score1']) && isset($_POST['score2']) ) {
-    
+                
             $nomEquipe1 = $_POST[$codeNomEq1];
             $nomEquipe2 = $_POST[$codeNomEq2];
             $score1 = $_POST['score1'];
@@ -46,7 +46,7 @@
             
             //cas ou elles sont ds le meme groupe
             if (isset($equipes)) {
-
+                echo '<br>  meme groupe in';
                 //variables retournées par la fonction find_groupe_and_his_name
                 $objEquipe1Retour=$equipes['equipe1'];
                 $objEquipe2Retour=$equipes['equipe2'];
@@ -77,10 +77,12 @@
             }
 
             // déclencher demi final
-            if ( $numMatch == 12 ) {
+            if ( count( detailDeTousLesMatchs()['qteMatchJouees'] ) == 12 ) {
                 qualifier_pour_demiFinal();
 
             }
+
+            
         }else {
             $_SESSION['errors']= $_SESSION["error_match_$numMatch"] = "Erreur de saisie";
         }
@@ -91,7 +93,7 @@
     function find_groupe_and_his_name($nomEquipe1,$nomEquipe2){
 
             // =================== ACCES A LA BASE DE DONNÉES =============================
-        
+            echo '<br> func find in';
         $stockerTemporEq = null;
         $nomGroupe = null;
         $trouveEq = null;
@@ -163,6 +165,11 @@
         
         $requete->closeCursor(); //Termine le traitement de la requete
         
+        echo '<br> Trouve= '.$trouveEq;
+        echo '<pre>';
+        print_r($stockerTemporEq);
+        echo '</pre>';
+
         //condition validant que les 2 sont ds le meme groupe            
         if ($trouveEq) {
             

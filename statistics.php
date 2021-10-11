@@ -1,5 +1,13 @@
+<?php
+    require_once('functions/infoTeam.php');
+    
+  $stats = detailDeTousLesMatchs();
+  
+
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr-FR">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,7 +20,6 @@
 
     <?php require 'header.php';?> 
     
-
      <!--stat section start--> 
      <section class="locations-section sec-padding" id="Locations">
           <div class="container-cards">
@@ -20,7 +27,7 @@
           <!--  -->
           <div class="">
                   <div class="section-title" style="text-align:center;">
-                      <h2 data-title="Stats Team">some Statistics</h2>
+                      <h2 data-title="Stats Team">Some Statistics</h2>
                   </div>
               </div>
             <!--  -->
@@ -31,35 +38,56 @@
 
                 <div class="card-infos-competition" id='box1'>
                     <div class="container-box bx">
-                        <h4><b>% match</b></h4>
+                        <h4><b>Qte Match</b></h4>
                         <p>
-                          5246 
+                          
+                          <?php 
+                            if( count($stats) > 0 ) { 
+                              echo $stats['qteMatchJouees'];
+                            } else echo 0; 
+                          ?>
+                          
                       </p>
                     </div>
                 </div> 
 
                 <div class="card-infos-competition" id='box2'>
                     <div class="container-box">
-                        <h4><b>total goal</b></h4>
+                        <h4><b>Total buts</b></h4>
                         <p>
-                           2506 
+                          <?php 
+                            if( count($stats) > 0 ) { 
+                              echo $stats['sommeTousScores'];
+                            } else echo 0; 
+                          ?>
+                          
                         </p>
                     </div>
                 </div> 
                 <div class="card-infos-competition" id='box3'>
                     <div class="container-box">
-                        <h4><b>Ratio match</b></h4>
+                        <h4><b>Ratio/match</b></h4>
                         <p> 
-                          2504 
+                        <?php 
+                          if( count($stats) > 0 ) { 
+                            echo number_format($stats['ratioButsParMatch'],2,'.','.');
+                          } else echo 0; 
+                        ?>
+                        
                         </p>
                            
                     </div>
                 </div> 
                 <div class="card-infos-competition" id='box4'>
                     <div class="container-box">
-                        <h4><b> % victory</b></h4>
+                        <h4><b>Victory</b></h4>
                         <p>
-                          52555
+                        <?php 
+                          if( count($stats) > 0 ) { 
+                            echo number_format($stats['pourcentageVictoire'],2,'.','.');
+                          } else echo 0; 
+                        ?>                        
+                          <span>%</span>
                         </p>
                     </div>
                 </div> 

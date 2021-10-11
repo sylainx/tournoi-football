@@ -47,11 +47,11 @@
                                     <td> 
                                         <?php
                                                 //  Le classement est afficher en fonction de la disponibilité de la SESSION
-                                            if (isset($_SESSION['classement-Grpe-B'])) {
+                                            if ( isset($_SESSION['classement-Grpe-B'], $_COOKIE['tirageGroupeB'], $_COOKIE['tirageGroupeB'] ) ) {
                                                 
                                                 echo $_SESSION['classement-Grpe-B'][$i][ $ligneCase[$j] ] ;
                                             
-                                            } else if($ligneCase[$j] == 'nomEquipe') {
+                                            } else if( isset( $_COOKIE['tirageGroupeB'], $_COOKIE['tirageGroupeB'] ) AND $ligneCase[$j] == 'nomEquipe' ) {
 
                                                 echo ($i+1) .'TDS';
 

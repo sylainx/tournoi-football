@@ -7,10 +7,8 @@
     }    
 
     //importation des scirpts
-    require ('classes/Equipe.php');
-    include('functions/appelerBD.php');    
-    include('functions/functions.php');
-    // require_once ("login/controllerUserData.php";    
+    require ('classes/Equipe.php');  
+    include('functions/functions.php');    
     
     //variables pour définir les cookies
     $expiration = time() + 60 * 15;
@@ -29,7 +27,15 @@
 
         if (isset( $_COOKIE['tirageGroupeB'] ) ) {
             $groupeB = unserialize($_COOKIE['tirageGroupeB']);
+
+            if ( !($groupeA || $groupeB)  and $_SESSION ) {
+                /*-- Réinitialiser tables et sessions --*/ 
+                   delete_all_tables();
+           }
+           
         }
+    
+    
 
 ?>
 
