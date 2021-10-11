@@ -1043,6 +1043,8 @@ h5 {
   position: absolute;
   top: 0;
   left: 0;
+  border-radius: 20px 20px 0 0;
+  opacity: 0.5;
   /*//////////Gestion du conteneur des card/////////////*/
 }
 
