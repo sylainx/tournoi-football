@@ -37,7 +37,7 @@
                             * A chaque tour, on affiche 9 colonnes à travers une autre boucle imbriquée
                             * colonnes: nomEquipe, mj, mg, etc...
                         */
-
+                        
                         for ($i=0; $i < 4 ; $i++) {
                                 
                                 // debut d'une ligne TR
@@ -53,11 +53,11 @@
                                         <?php
                                                 //  Le classement est afficher en fonction de la disponibilité de la SESSION
 
-                                            if (isset($_SESSION['classement-Grpe-A'])) {
+                                            if (isset($_SESSION['classement-Grpe-A'], $_COOKIE['tirageGroupeA'], $_COOKIE['tirageGroupeA'] ) ) {
                                                 
                                                 echo $_SESSION['classement-Grpe-A'][$i][ $ligneCase[$j] ] ;
                                             
-                                            } else if($ligneCase[$j] == 'nomEquipe') {
+                                            } else if( isset( $_COOKIE['tirageGroupeA'], $_COOKIE['tirageGroupeA'] ) AND $ligneCase[$j] == 'nomEquipe') {
 
                                                 echo ($i+1) .'TDS';
 

@@ -507,3 +507,103 @@
         $stmt1->closeCursor();
 
     }
+
+
+
+    
+    // -----------------------------------------------------------------
+    // ----------------------- FEATURED -----------------------
+    // -----------------------------------------------------------------
+    
+    function infosSurMatchJoues() {
+
+        $cpt = 0;
+        $lignesMatch = [];
+
+        global $bdd;
+
+        $codeSql = "SELECT * FROM listematchs";    
+        $stmtMatchs = $bdd->prepare($codeSql);
+        $stmtMatchs->execute();
+
+        while ($donnees = $stmtMatchs->fetch() ) {
+            $lignesMatch[$cpt] = $donnees;            
+            $cpt++;
+        }
+        return $lignesMatch;
+        
+    }
+
+
+    function donnerVainqueursEdition() {
+
+        global $bdd;
+        $cpt = 0;
+        $lignesGrandeFinale = [];
+        $lignesPetiteFinale = [];
+
+        $champion = null;
+        $deuxieme = null;
+        $troisieme = null;            
+
+        // ------------- Grande finale ---------------        
+        $codeSql = "SELECT nomEquipe, logo, score FROM grandefinal ";
+        $stmtVqGrdeF = $bdd->prepare($codeSql);
+        $stmtVqGrdeF->execute();
+
+        while ($donnees = $stmtVqGrdeF->fetch() ) {
+            $lignesGrandeFinale[$cpt] = $donnees;        
+            $cpt++;
+        }            
+        $nbLiGrF= $stmtVqGrdeF ->rowCount();
+        
+        if ( $nbLiGrF > 0) {
+            if ( $lignesGrandeFinale[0]['score'] > $lignesGrandeFinale[1]['score'] ) {
+                $champion = $lignesGrandeFinale[0]['nomEquipe'];
+                $deuxieme = $lignesGrandeFinale[1]['nomEquipe'];
+            }
+            else {
+                $champion = $lignesGrandeFinale[1]['nomEquipe'];
+                $deuxieme = $lignesGrandeFinale[0]['nomEquipe'];
+            }                
+        }
+        $stmtVqGrdeF ->closeCursor();            
+
+        // ------------- petite finale ---------------
+
+        $codeSql = "SELECT nomEquipe, logo, score FROM petitefinal ";
+        $stmtVqPetiteF = $bdd->prepare($codeSql);
+        $stmtVqPetiteF->execute();
+
+        $cpt2=0;
+        while ($donnees = $stmtVqPetiteF->fetch() ) {
+            $lignesPetiteFinale[$cpt2] = $donnees;        
+            $cpt2++;
+        }            
+        $nbLiPetiteF= $stmtVqPetiteF ->rowCount();
+        
+        if ( $nbLiPetiteF > 0) {
+            if ( $lignesPetiteFinale[0]['score'] > $lignesPetiteFinale[1]['score'] ) {
+                $troisieme = $lignesPetiteFinale[0]['nomEquipe'];
+            }
+            else {
+                $troisieme = $lignesPetiteFinale[1]['nomEquipe'];
+            }                
+        }
+
+        // echo '<br> Champion:  :'.$champion;
+        // echo '<br> deuxieme :'.$deuxieme;
+        // echo '<br> Troisieme :'.$troisieme;
+        
+        // echo '<br><br>Finales <pre>';
+        // print_r($lignesGrandeFinale);
+        // print_r($lignesPetiteFinale);
+        // echo '</pre>';
+
+        return ( array(
+            'vqGrdeFinale'=> $champion,
+            'perdantGrdeFinale'=> $deuxieme,
+            'vqPetiteFinale'=> $troisieme
+        ));
+
+    }
