@@ -499,6 +499,7 @@ footer{
           display: flex;
           justify-content: space-around;
         }
+
  }
 
  .content-text1{
@@ -553,14 +554,29 @@ footer{
         .social-links a:hover{
                 color: $violet-light;
             }
-/*************Responsivity of upper body**************/
 
-@media screen and(max-width:500px) { 
+
+            
+/*************Responsivity of  footer**************/
+
+@media screen and(max-width:600px) { 
     #content-footer1{
         flex-wrap: wrap;
-    }
+    
+      .container-content-text{
+        display: block;
+
+      }
+}
     .copyright-items{
         flex-wrap: wrap;
+    }
+    .container-content-text{
+      display: grid;
+      grid-template-columns: repeat(1 ,1fr);
+    }
+    .content-text2{
+      margin: 20px 0;
     }
 }   
 

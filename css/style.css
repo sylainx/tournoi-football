@@ -663,15 +663,27 @@ footer {
   color: #863699;
 }
 
-/*************Responsivity of upper body**************/
-@media screen and (max-width: 500px) {
+/*************Responsivity of  footer**************/
+@media screen and (max-width: 600px) {
   #content-footer1 {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
   }
+  #content-footer1 .container-content-text {
+    display: block;
+  }
   .copyright-items {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
+  }
+  .container-content-text {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+  }
+  .content-text2 {
+    margin: 20px 0;
   }
 }
 
