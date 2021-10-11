@@ -15,7 +15,7 @@
 
      <!--stat section start--> 
      <section class="locations-section sec-padding" id="Locations">
-          <div class="container-cards">
+          
 
           <!--  -->
           <div class="">
@@ -25,48 +25,49 @@
               </div>
             <!--  -->
 
-          <div class="container-statistic">
+          <section class="container-statistic">
 
-          <section class="content-infos-competions">
+                  <div class="content-infos-competions">
 
-                <div class="card-infos-competition" id='box1'>
-                    <div class="container-box bx">
-                        <h4><b>% match</b></h4>
-                        <p>
-                          5246 
-                      </p>
-                    </div>
-                </div> 
+                        <div class="card-infos-competition" id='box1'>
+                            <div class="container-box bx">
+                                <h4><b>% match</b></h4>
+                                <p>
+                                  5246 
+                              </p>
+                            </div>
+                        </div> 
 
-                <div class="card-infos-competition" id='box2'>
-                    <div class="container-box">
-                        <h4><b>total goal</b></h4>
-                        <p>
-                           2506 
-                        </p>
-                    </div>
-                </div> 
-                <div class="card-infos-competition" id='box3'>
-                    <div class="container-box">
-                        <h4><b>Ratio match</b></h4>
-                        <p> 
-                          2504 
-                        </p>
-                           
-                    </div>
-                </div> 
-                <div class="card-infos-competition" id='box4'>
-                    <div class="container-box">
-                        <h4><b> % victory</b></h4>
-                        <p>
-                          52555
-                        </p>
-                    </div>
-                </div> 
-        </section>
+                        <div class="card-infos-competition" id='box2'>
+                            <div class="container-box">
+                                <h4><b>total goal</b></h4>
+                                <p>
+                                  2506 
+                                </p>
+                            </div>
+                        </div> 
+                        <div class="card-infos-competition" id='box3'>
+                            <div class="container-box">
+                                <h4><b>Ratio match</b></h4>
+                                <p> 
+                                  2504 
+                                </p>
+                                  
+                            </div>
+                        </div> 
+                        <div class="card-infos-competition" id='box4'>
+                            <div class="container-box">
+                                <h4><b> % victory</b></h4>
+                                <p>
+                                  52555
+                                </p>
+                            </div>
+                        </div> 
+                </div>
 
-          </div>
-            
+            </section>
+          
+          <div class="container-cards"> 
               <div class="card-items">
                 <div class="cards">
                   <div class="card card1">

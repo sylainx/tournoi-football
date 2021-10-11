@@ -39,6 +39,13 @@ body{
     background-color : rgba(51, 108, 194, 0.767);
     transition : transform 1s;
   }
+  .userGuide{
+    padding: 20px;
+    margin-left: 55px;
+    color: azure;
+    text-decoration: none;
+
+  }
 .signupbutton,button{
   background-color: red;
   color: white;
@@ -63,9 +70,7 @@ body{
 } 
 html{
     font-family: 'Poppins', sans-serif;
-    body{
-        font-family: 'Poppins', sans-serif;
-    }
+   
 }
 img{
     width: 100%;
