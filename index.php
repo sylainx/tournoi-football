@@ -14,8 +14,7 @@
             <p class="homedescription"><br>enjoy all match,of all your favorite<br>team</p>
             <a href="login/login.php" class="homebutton">Se connecter</div></a>
 
-            <div class="userGuide"> <a href="userGuide/test.pdf" class="userGuide-btn">Download guide</a></div>
-           
+            <a href="guide d'utilsation/guide d'utilisation tournoi football.pdf" class="homebutton1">Download guide</div></a>
 
         </section>
         
