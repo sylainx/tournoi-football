@@ -137,8 +137,7 @@
         
         //détruire la session courante s'il y en a
         if (isset($_SESSION) ) {
-            session_destroy();
-            
+            session_destroy();            
         }
         
     } 
