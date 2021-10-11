@@ -25,7 +25,7 @@
           <input type="password" name="password" id="password" placeholder="Enter your password" required> <br>
           <label for="password_retype"> Retype-Password</label>
           <input type="password" name="password_retype" id="password_retype" placeholder="Retype your password" required> <br>
-
+             <p>remenber your password</p>
           <button type="submit"class="button" name="inscription"> INSCRIPTION</button> 
           <p>Are you a member? <a href="login.php">Login</a></p>
           

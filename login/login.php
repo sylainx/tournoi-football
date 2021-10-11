@@ -31,6 +31,7 @@
 
           <label>Password</label>
           <input type="password" name="password" placeholder="enter your password" required="required"><br>
+          <p>forget your password?</p>
           
           <button type="submit" name="connexion" class="button">CONNEXION</button>
           
