@@ -17,7 +17,7 @@ html,body{
     text-align: center;
 }
 .container ,form{
-    background: #fff;
+    background: rgb(255, 255, 255);
     padding: 30px 35px;
     border-radius: 5px;
     box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(253, 250, 250, 0.19);
@@ -73,5 +73,54 @@ input[type=email] {
 label{
     display: block;
 }
+@media screen and (max-width: 768px){
+    .form {
+      display: none;
+    }
+    .container{
+        background: #fff;
+        padding: 30px 35px;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(253, 250, 250, 0.19);
+        width: 60%;
 
-
+    }
+    input[type=email] {
+        width: 200px;
+        margin: -45px;
+        padding: 12px 20px;
+        border: 2px solid rgba(104, 190, 248, 0.959);
+        border-radius: 4px;
+        text-align: center;
+    }
+    input[type=password] {
+    width: 200px;
+    margin: -45px;
+    padding: 12px 20px;
+    border: 2px solid rgba(104, 190, 248, 0.959);
+    border-radius: 4px;
+}
+.container  .button{
+    background: #6665ee;
+    color: #fff;
+    font-size: 19px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    text-decoration: none;
+    border: none;
+    padding: 14px 30px;
+    margin: -45px;
+}
+input[type=text] {
+    width: 200px;
+    margin: -45px;
+    padding: 12px 20px;
+    border: 2px solid rgba(104, 190, 248, 0.959);
+    border-radius: 4px;
+}
+label{
+    display: block;
+    padding: 6px;
+}
+]

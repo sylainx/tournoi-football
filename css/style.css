@@ -374,7 +374,6 @@ input[type="checkbox"] {
         about us
 -------------------*/
 .section-title {
-  width: 100%;
   padding: 0 15px;
   text-align: center;
   margin: 30px;
@@ -396,6 +395,27 @@ input[type="checkbox"] {
   font-weight: 400;
 }
 
+/*.about-section
+{
+  background-color: var(--dark);
+}
+.about-text,
+.about-img{
+    width: 50%;
+    padding: 0 15px;
+}
+.about-text h3{
+    font-size: 30px;
+    text-transform: capitalize;
+    margin: 0 0 15px;
+}
+.about-text h3{
+    margin: 0 0 15px;
+}
+.about-img img{
+  width: 80%;
+  border-radius: 10px;
+}*/
 /*************Responsivity home Team cart and about us ***************/
 @media screen and (max-width: 700px) {
   .card-home {
@@ -992,8 +1012,8 @@ h5 {
 .cards {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(270px, 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  -ms-grid-columns: (minmax(300px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   padding: 20px;
   grid-gap: 40px;
 }
@@ -1023,8 +1043,6 @@ h5 {
   position: absolute;
   top: 0;
   left: 0;
-  border-radius: 20px 20px 0 0;
-  opacity: 0.5;
   /*//////////Gestion du conteneur des card/////////////*/
 }
 
