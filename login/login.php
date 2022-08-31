@@ -24,14 +24,14 @@
     <div class="container">
        <form action="login.php"method="POST">
           
-          <h2>Connection</h2>
+          <h2>Connexion</h2>
 
           <label>Email</label>
-          <input type="text" name="email" placeholder="enter your email" required="required"><br>
+          <input type="text" name="email" placeholder="Entrer votr email" required="required"><br>
 
-          <label>Password</label>
-          <input type="password" name="password" placeholder="enter your password" required="required"><br>
-          <p>forget your password?</p>
+          <label>mot de passe</label>
+          <input type="password" name="password" placeholder="Entrer votr password" required="required"><br>
+          <p>Mot de passe oublie?</p>
           
           <button type="submit" name="connexion" class="button">CONNEXION</button>
           
@@ -44,7 +44,7 @@
 
         </form>
 
-       <p>Not member yet? <a href="inscription.php">s'inscrire</a></p>
+       <p>Pas encore membre? <a href="inscription.php">s'inscrire</a></p>
 
        </div>
 </body>

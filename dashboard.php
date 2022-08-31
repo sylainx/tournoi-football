@@ -116,10 +116,10 @@
                 
                 <thead>
                     <tr>
-                        <th>Lot #1 (e tete de série)</th>
-                        <th>Lot #2 (e tete de série)</th>
-                        <th>Lot #3 (e tete de série)</th>
-                        <th>Lot #3 (e tete de série)</th>
+                        <th>Lot #1 (Tete de série)</th>
+                        <th>Lot #2 (Tete de série)</th>
+                        <th>Lot #3 (Tete de série)</th>
+                        <th>Lot #3 (Tete de série)</th>
                     </tr>
                 </thead>
 

@@ -2,7 +2,7 @@
             <div class="container-about">
                 <div class="about-title">
                     <div class="section-title">
-                        <h2 data-title="Classement of team">Classement Groupe A</h2>
+                        <h2 data-title="Classement des equipes">Classement Groupe A</h2>
                     </div>
                 </div>
             </div>

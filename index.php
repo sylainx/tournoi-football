@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/index.css?v=ss2">
     <title>Accueil</title>
 </head>
 <body>
@@ -11,10 +11,13 @@
     <div class="container">
         <section>
             <h1 class="hometitle">UN SITE POUR VOUS<br>ET VOTRE PASSION<br>DU FOOTBALL</h1>
-            <p class="homedescription"><br>enjoy all match,of all your favorite<br>team</p>
-            <a href="login/login.php" class="homebutton">Se connecter</div></a>
+            <p class="homedescription"><br>Profiter de chaque match, supporter votre <br>equipe preferee</p>
 
-            <a href="guide d'utilsation/guide d'utilisation tournoi football.pdf" class="homebutton1">Download guide</div></a>
+            <div class="center-element" style="margin: 0 auto;">
+                <a href="login/login.php" class="homebutton">Se connecter</div></a>
+                <a href="guide d'utilsation/guide d'utilisation tournoi football.pdf" class="homebutton1">Telecharger le guide</div></a>
+                
+            </div>
 
         </section>
         

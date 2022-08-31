@@ -418,6 +418,10 @@ input[type="checkbox"] {
 }*/
 /*************Responsivity home Team cart and about us ***************/
 @media screen and (max-width: 700px) {
+  .home-button{
+    width: 100%;
+  }
+  
   .card-home {
     min-width: 350px;
   }

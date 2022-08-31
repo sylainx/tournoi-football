@@ -1,4 +1,4 @@
-CREATE OR REPLACE DATABASE tournoisoccer;
+CREATE  DATABASE tournoisoccer;
 USE tournoisoccer;
 --
 -- Base de données :  `tournoisoccer`
@@ -10,7 +10,7 @@ USE tournoisoccer;
 -- Structure de la table `classementgroupea`
 --
 
-CREATE OR REPLACE TABLE `classementgroupea` (
+CREATE  TABLE `classementgroupea` (
   `idEquipe` int(10) UNSIGNED NOT NULL,
   `nomEquipe` varchar(50) NOT NULL,
   `groupe` varchar(50) NOT NULL,
@@ -31,7 +31,7 @@ CREATE OR REPLACE TABLE `classementgroupea` (
 -- Structure de la table `classementgroupeb`
 --
 
-CREATE OR REPLACE TABLE `classementgroupeb` (
+CREATE  TABLE `classementgroupeb` (
   `idEquipe` int(10) UNSIGNED NOT NULL,
   `nomEquipe` varchar(50) NOT NULL,
   `groupe` varchar(50) NOT NULL,
@@ -52,7 +52,7 @@ CREATE OR REPLACE TABLE `classementgroupeb` (
 -- Structure de la table `demifinal`
 --
 
-CREATE OR REPLACE TABLE `demifinal` (
+CREATE  TABLE `demifinal` (
   `id` int(10) DEFAULT NULL,
   `equipe1` varchar(255) NOT NULL,
   `equipe2` varchar(255) NOT NULL,
@@ -67,7 +67,7 @@ CREATE OR REPLACE TABLE `demifinal` (
 -- Structure de la table `grandefinal`
 --
 
-CREATE OR REPLACE TABLE `grandefinal` (
+CREATE  TABLE `grandefinal` (
   `id` int(10) NOT NULL,
   `nomEquipe` varchar(255) NOT NULL,
   `logo` varchar(255) DEFAULT NULL,
@@ -80,7 +80,7 @@ CREATE OR REPLACE TABLE `grandefinal` (
 -- Structure de la table `listematchs`
 --
 
-CREATE OR REPLACE TABLE `listematchs` (
+CREATE  TABLE `listematchs` (
   `numeroMatch` int(10) NOT NULL,
   `equipe1` varchar(20) NOT NULL,
   `equipe2` varchar(20) NOT NULL,
@@ -95,7 +95,7 @@ CREATE OR REPLACE TABLE `listematchs` (
 -- Structure de la table `petitefinal`
 --
 
-CREATE OR REPLACE TABLE `petitefinal` (
+CREATE  TABLE `petitefinal` (
   `id` int(10) NOT NULL,
   `nomEquipe` varchar(255) NOT NULL,
   `logo` varchar(255) DEFAULT NULL,
@@ -153,7 +153,7 @@ ALTER TABLE `classementgroupeb`
 -- Structure de la table `utilisateur`
 --
 
-CREATE OR REPLACE TABLE `utilisateur` (
+CREATE  TABLE `utilisateur` (
   `id` int(11) NOT NULL,
   `pseudo` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,

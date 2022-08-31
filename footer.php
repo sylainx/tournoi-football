@@ -21,20 +21,19 @@
                 
             </div>
             <div class="content-text2">
-                <h3>QUICK LINKS</h3>
+                <h3>LIENS UTILES</h3>
                 <p> <a href="dashboard.php">Accueil</a></p>
                 <p> <a href="classements.php">Classements</a></p>
-                <p> <a href="statistics.php">Stat|Team</a></p>
+                <p> <a href="statistics.php">Stat|Equipes</a></p>
                 <p> <a href="login/logout-user.php" >Deconnexion</a></p>
              </div>
         </div>
              <!--  -->
             <div class="content-text3">
-                <h3>SIGN UP FOR EMAIL ALERTS</h3>
-                <p>select topics and stay current with our latest news.</p>
+                <h3>S'inscrire a notre newsletter</h3>
                 <span class="email-input row"> 
-                    <input class="footerMail" type="text" placeholder="Your email address">
-                    <button class="btn-footer" type="submit" >SUBMIT</button>
+                    <input class="footerMail" type="text" placeholder="Votre adresse email">
+                    <button class="btn-footer" type="submit" >Envoyer</button>
                 </span>
             </div>
         </div>
@@ -46,7 +45,7 @@
                     <a href="#" id="animation"><i class="fab fa-instagram"></i></a>
                     <a href="#" id="animation"><i class="fab fa-youtube"></i></a>
                 </div>  
-                <div class="designer">Proudly designed and developed by us(Ludens509,GS7,Hashley)</div>
+                <div class="designer">Proudly designed and developed by: Ludens509 | Sylainx | Hashley)</div>
         </div>
     </div>
      

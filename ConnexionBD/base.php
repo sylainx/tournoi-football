@@ -2,10 +2,19 @@
     
     class ConnexionBD
     {
+
+		// online
+        // private $host    = 'fdb32.awardspace.net';  // nom de l'host
+        // private $nomBase    = '4161789_tournoisoccer';    // nom de la base de donnée
+        // private $user    = '4161789_tournoisoccer';       // utilisateur server
+        // private $pwd    = "hiR0q/(85.WYjK3[";       // mot de passe server
+
+		// local
         private $host    = 'localhost';  // nom de l'host
         private $nomBase    = 'tournoisoccer';    // nom de la base de donnée
         private $user    = 'root';       // utilisateur
-        private $pwd    = '';       // mot de passe (il faudra peut-être mettre '' sous Windows)
+        private $pwd    = '';       // mot de passe (il faudra peut-être mettre '' sous Windows) 
+		
         private $connexion;
 		
 		function __construct($host = null, $nomBase = null, $user = null, $pwd = null){

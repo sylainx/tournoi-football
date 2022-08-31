@@ -27,23 +27,18 @@
           <!--  -->
           <div class="">
                   <div class="section-title" style="text-align:center;">
-                      <h2 data-title="Stats Team">Some Statistics</h2>
+                      <h2 data-title="Stats des Equipes">Statistiques du championnat</h2>
                   </div>
               </div>
             <!--  -->
 
-<<<<<<< HEAD
-          
-          
-         
-=======
           <div class="container-statistic">
 
           <section class="content-infos-competions">
 
                 <div class="card-infos-competition" id='box1'>
                     <div class="container-box bx">
-                        <h4><b>Qte Match</b></h4>
+                        <h4><b>Qte Match(s)</b></h4>
                         <p>
                           
                           <?php 
@@ -85,7 +80,7 @@
                 </div> 
                 <div class="card-infos-competition" id='box4'>
                     <div class="container-box">
-                        <h4><b>Victory</b></h4>
+                        <h4><b>Nbre de Victoires</b></h4>
                         <p>
                         <?php 
                           if( count($stats) > 0 ) { 
@@ -100,7 +95,6 @@
 
       </div>
             
->>>>>>> 2d1ed1a114b235c39426dec3fe40b989d238e66c
             <div class="container-cards"> 
               <div class="card-items">
                 <div class="cards">
@@ -110,7 +104,7 @@
                     </div>
                     <div class="details row">
                       <h3>France</h3>
-                      <button onclick="togglePopup('popup-1')" class="first-button show-btn">more</button>
+                      <button onclick="togglePopup('popup-1')" class="first-button show-btn">plus</button>
                         
                     </div>
                   </div>
@@ -119,8 +113,8 @@
                       <img src="Icons/italia.png" style ="width:45%; " alt="italia">
                     </div>
                     <div class="details row">
-                      <h3>Italy</h3>
-                      <button onclick="togglePopup('popup-2')" class="first-button show-btn">more</button>
+                      <h3>Italie</h3>
+                      <button onclick="togglePopup('popup-2')" class="first-button show-btn">plus</button>
 
                     </div>
                   </div>
@@ -130,7 +124,7 @@
                     </div>
                     <div class="details row">
                       <h3>Espagne</h3>
-                      <button onclick="togglePopup('popup-3')" class="first-button show-btn">more</button>
+                      <button onclick="togglePopup('popup-3')" class="first-button show-btn">plus</button>
 
                     </div>
                   </div>
@@ -139,8 +133,8 @@
                       <img src="Icons/brazil.png" style ="width:55%; " alt="brazil">
                     </div>
                     <div class="details row">
-                      <h3><b>Brazil</b></h3>
-                      <button onclick="togglePopup('popup-4')" class="first-button show-btn">more</button>
+                      <h3><b>Bresil</b></h3>
+                      <button onclick="togglePopup('popup-4')" class="first-button show-btn">plus</button>
 
                     </div>
                   </div>
@@ -150,7 +144,7 @@
                     </div>
                     <div class="details row">
                       <h3><b>Portugal</b></h3>
-                      <button onclick="togglePopup('popup-5')" class="first-button show-btn">more</button>
+                      <button onclick="togglePopup('popup-5')" class="first-button show-btn">plus</button>
 
                     </div>
                   </div>
@@ -160,7 +154,7 @@
                     </div>
                     <div class="details row">
                       <h3><b>Haiti</b></h3>
-                      <button onclick="togglePopup('popup-6')" class="first-button show-btn">more</button>
+                      <button onclick="togglePopup('popup-6')" class="first-button show-btn">plus</button>
 
                     </div>
                   </div>
@@ -169,8 +163,8 @@
                       <img src="Icons/argentina.svg" style ="width:50%; " alt="Argentina">
                     </div>
                     <div class="details row">
-                      <h3><b>Argentina</b></h3>
-                      <button onclick="togglePopup('popup-7')" class="first-button show-btn">more</button>
+                      <h3><b>Argentine</b></h3>
+                      <button onclick="togglePopup('popup-7')" class="first-button show-btn">plus</button>
 
                     </div>
                   </div>
@@ -180,7 +174,7 @@
                     </div>
                     <div class="details row">
                       <h3><b>Allemagne</b></h3>
-                      <button onclick="togglePopup('popup-8')" class="first-button show-btn">more</button>
+                      <button onclick="togglePopup('popup-8')" class="first-button show-btn">plus</button>
 
                     </div>
                   </div>
